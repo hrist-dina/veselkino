@@ -1,0 +1,90 @@
+
+; /* Start:"a:4:{s:4:"full";s:105:"/local/templates/veselkino/components/bitrix/system.pagenavigation/show_more_news/script.js?1531975541755";s:6:"source";s:91:"/local/templates/veselkino/components/bitrix/system.pagenavigation/show_more_news/script.js";s:3:"min";s:0:"";s:3:"map";s:0:"";}"*/
+$(document).ready(function(){
+
+    $(document).on('click', '[js-news-load-more]', function(){
+
+        var targetContainer = $('[js-news-list]'),
+            url = $('[js-news-load-more]').attr('data-url');
+
+        if (url !== undefined) {
+            $.ajax({
+                type: 'GET',
+                url: url,
+                dataType: 'html',
+                success: function(data){
+
+                    $('[js-news-load-more]').remove();
+
+                    var elements = $(data).find('[js-news-item]'),
+                        pagination = $(data).find('[js-news-load-more]');
+
+                    targetContainer.append(elements);
+                    targetContainer.after(pagination);
+                }
+            });
+        }
+    });
+});
+/* End */
+;
+; /* Start:"a:4:{s:4:"full";s:108:"/local/templates/veselkino/components/bitrix/system.pagenavigation/show_more_actions/script.js?1531975541773";s:6:"source";s:94:"/local/templates/veselkino/components/bitrix/system.pagenavigation/show_more_actions/script.js";s:3:"min";s:0:"";s:3:"map";s:0:"";}"*/
+$(document).ready(function(){
+
+    $(document).on('click', '[js-actions-load-more]', function(){
+
+        var targetContainer = $('[js-actions-list]'),
+            url = $('[js-actions-load-more]').attr('data-url');
+
+        if (url !== undefined) {
+            $.ajax({
+                type: 'GET',
+                url: url,
+                dataType: 'html',
+                success: function(data){
+
+                    $('[js-actions-load-more]').remove();
+
+                    var elements = $(data).find('[js-actions-item]'),
+                        pagination = $(data).find('[js-actions-load-more]');
+
+                    targetContainer.append(elements);
+                    targetContainer.after(pagination);
+                }
+            });
+        }
+    });
+});
+/* End */
+;
+; /* Start:"a:4:{s:4:"full";s:109:"/local/templates/veselkino/components/bitrix/system.pagenavigation/show_more_training/script.js?1531975541779";s:6:"source";s:95:"/local/templates/veselkino/components/bitrix/system.pagenavigation/show_more_training/script.js";s:3:"min";s:0:"";s:3:"map";s:0:"";}"*/
+$(document).ready(function(){
+
+    $(document).on('click', '[js-training-load-more]', function(){
+
+        var targetContainer = $('[js-training-list]'),
+            url = $('[js-training-load-more]').attr('data-url');
+
+        if (url !== undefined) {
+            $.ajax({
+                type: 'GET',
+                url: url,
+                dataType: 'html',
+                success: function(data){
+
+                    $('[js-training-load-more]').remove();
+
+                    var elements = $(data).find('[js-training-item]'),
+                        pagination = $(data).find('[js-training-load-more]');
+
+                    targetContainer.append(elements);
+                    targetContainer.after(pagination);
+                }
+            });
+        }
+    });
+});
+/* End */
+;; /* /local/templates/veselkino/components/bitrix/system.pagenavigation/show_more_news/script.js?1531975541755*/
+; /* /local/templates/veselkino/components/bitrix/system.pagenavigation/show_more_actions/script.js?1531975541773*/
+; /* /local/templates/veselkino/components/bitrix/system.pagenavigation/show_more_training/script.js?1531975541779*/
