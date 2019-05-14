@@ -7,7 +7,12 @@
 .intro-reservation__bg {
     width: 100%;
     min-height: 1319px;
-    background: linear-gradient(180deg, #3BB5FC 0%, #ABECFE 59.79%, #A9EAFE 100%);
+    background: linear-gradient(
+        180deg,
+        #3bb5fc 0%,
+        #abecfe 59.79%,
+        #a9eafe 100%
+    );
 }
 
 .intro-reservation__sky,
@@ -20,11 +25,12 @@
     min-height: 680px;
 }
 .intro-reservation__sky::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 25px;
     left: 0;
-    background: url('../images/reservation/intro/sky.svg') no-repeat center center;
+    background: url("../images/reservation/intro/sky.svg") no-repeat center
+        center;
     width: 100%;
     height: 680px;
     z-index: 1;
@@ -34,11 +40,12 @@
     min-height: 1302px;
 }
 .intro-reservation__world::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
-    background: url('../images/reservation/intro/world.svg') no-repeat center center;
+    background: url("../images/reservation/intro/world.svg") no-repeat center
+        center;
     width: 100%;
     height: 1302px;
     z-index: 2;
@@ -49,11 +56,12 @@
     width: 50%;
 }
 .intro-reservation__balloon::before {
-    content: '';
+    content: "";
     position: absolute;
     width: 675px;
     height: 719px;
-    background: url('../images/reservation/intro/balloon.svg') no-repeat center center;
+    background: url("../images/reservation/intro/balloon.svg") no-repeat center
+        center;
     left: 90px;
     top: 0;
     z-index: 3;
@@ -61,7 +69,6 @@
 
 .intro-reservation__content {
     display: flex;
-
 }
 .intro-reservation__inbox {
     padding-top: 160px;
@@ -71,7 +78,7 @@
 .intro-reservation__title {
     font-size: 48px;
     line-height: 58px;
-    color: #FFFFFF;
+    color: #ffffff;
     margin-bottom: 30px;
 }
 
@@ -79,14 +86,14 @@
     position: relative;
     left: 15px;
     top: -8px;
-    border: 2px dashed #FBCB38;
+    border: 2px dashed #fbcb38;
     border-radius: 10px;
     box-sizing: border-box;
     transform: rotate(0.74deg);
 }
 
 .intro-reservation__desc {
-    background: linear-gradient(180deg, #59AAF3 0%, #0E8FED 100%);
+    background: linear-gradient(180deg, #59aaf3 0%, #0e8fed 100%);
     border-radius: 10px;
 }
 
@@ -102,7 +109,7 @@
     font-size: 18px;
     line-height: 21px;
     text-align: center;
-    color: #FFFFFF;
+    color: #ffffff;
 }
 
 .intro-reservation__desc-text p {
@@ -115,11 +122,11 @@
 
 .intro-reservation__desc-bold {
     margin-top: 30px;
-    font-family: '_kiddy','Trebuchet MS',Arial,sans-serif;
+    font-family: "_kiddy", "Trebuchet MS", Arial, sans-serif;
     font-size: 18px;
     line-height: 22px;
     text-align: center;
-    color: #FFFFFF;
+    color: #ffffff;
 }
 
 .reservation {
@@ -139,7 +146,7 @@
 .reservation__choice label {
     font-size: 14px;
     line-height: 16px;
-    color: #FFFFFF;
+    color: #ffffff;
     display: inline-block;
     margin-right: 25px;
     text-align: left;
@@ -163,4 +170,167 @@
 
 .reservation__select {
     max-width: 295px;
+}
+
+.reservation-tariff__list {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+
+.reservation-tariff__item {
+    margin-right: 12px;
+
+    width: 380px;
+    min-height: 623px;
+    background: url("../images/reservation/tariffs/tariff-bg.svg") no-repeat
+        center;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    background-color: #ffffff;
+}
+
+.reservation-tariff__inner {
+    padding: 16px;
+    padding-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    box-sizing: border-box;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: 46px;
+}
+
+.reservation-tariff__item:last-child {
+    margin-right: 0;
+}
+
+.reservation-tariff__title {
+    font-family: "_kiddy", "Trebuchet MS", Arial, sans-serif;
+    font-size: 24px;
+    color: #2f6ebd;
+    font-weight: 500;
+}
+
+.reservation-tariff__text span {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.reservation-tariff__text {
+    font-family: Roboto, Arial, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    color: #ffffff;
+}
+
+.reservation-tariff__price {
+    font-family: Roboto, Arial, sans-serif;
+    color: #ffffff;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 20px 15px 10px;
+    margin-top: 10px;
+    background: #e6142a;
+    display: inline-block;
+    border-top-left-radius: 100px;
+    border-top-right-radius: 100px;
+}
+
+.reservation-tariff__desc {
+    flex: 1 0 auto;
+    margin-top: 250px;
+}
+
+.reservation-tariff__bottom {
+    flex: 0 0 auto;
+    margin-top: 10px;
+    padding-top: 8px;
+    border-top: 2px solid #ffffff;
+}
+
+.zones__title {
+    text-align: center;
+    color: #32bc4f;
+}
+
+.section-form {
+    background: url("../images/reservation/contact/contact-bg.svg") no-repeat
+        center center;
+    width: 100%;
+    min-height: 756px;
+    padding-top: 100px;
+    background-color: #fff;
+}
+.contact-form {
+    max-width: 380px;
+    margin: auto;
+    position: relative;
+}
+
+.contact-form::before {
+    content: "";
+    position: absolute;
+    background: url("../images/reservation/contact/man.svg") no-repeat;
+    width: 381px;
+    height: 610px;
+    left: -400px;
+}
+
+.contact-form__wrap {
+    padding-top: 100px;
+}
+
+.contact__title {
+    text-align: center;
+    color: #ffffff;
+}
+
+.contact-form__label {
+    display: block;
+    margin-bottom: 24px;
+}
+
+.contact-form__label span {
+    margin-left: 20px;
+    color: #ffffff;
+}
+
+.contact-form__input-text {
+    border: none;
+}
+
+.contact-form__label-text {
+    font-family: Roboto, Arial, sans-serif;
+    color: #ffffff;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: normal;
+}
+
+.contact-form__hulf {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 24px;
+}
+
+.contact-form__hulf > .contact-form__label {
+    width: calc(50% - 5px);
+    margin-bottom: 0;
+}
+
+.contact-form__thanks {
+    text-align: center;
+    color: #32bc4f;
+    padding-bottom: 45px;
+}
+
+.button-contact-form {
+    color: #ffffff;
 }
