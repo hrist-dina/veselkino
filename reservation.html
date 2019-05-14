@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="css/style.css">
     <script src="js/vendor.js"></script>
     <script src="js/common.js"></script>
+    <script src="js/script.js"></script>
     <script>
         app.start();
     </script>
@@ -117,6 +118,9 @@
                                     </div>
 
                                     <div class="nav__item">
+                                        <a href="reservation.html" class="nav__link is-active">Бронь дня рождения</a>
+                                    </div>
+                                    <div class="nav__item">
                                         <a js-scroll-item data-scroll="6" href="#" class="nav__link">Контакты</a>
                                     </div>
 
@@ -182,148 +186,163 @@
         <div class="body__content-top">
             <div class="intro-reservation">
                 <div class="intro-reservation__bg">
-                    <div class="intro-reservation__sky">
-                        <div class="intro-reservation__content reservation-container">
-                            <div class="intro-reservation__inbox">
-                                <h1 class="title-h1 intro-reservation__title">Думаете, где отпраздновать День рождения
-                                    ребенка?</h1>
+                    <div class="intro-reservation__elements">
+                        <div class="intro-reservation__balloon-mini-1"></div>
+                        <div class="intro-reservation__balloon-mini-2"></div>
+                    </div>
 
-                                <div class="intro-reservation__desc">
-                                    <div class="intro-reservation__desc-border">
-                                        <div class="intro-reservation__desc-inbox">
-                                            <div class="intro-reservation__desc-text">
-                                                <p>Город развлечений <b>«Веселкино»</b> приглашает юных именинников
-                                                    отметить это
-                                                    событие у нас!</p>
-                                                <p>Мы организуем для Вашего ребенка незабываемый праздник!</p>
-                                            </div>
-                                            <div class="intro-reservation__desc-bold">
-                                                Теперь для наших клиентов доступно бронирование Дня рождения on-line!
-                                            </div>
+                    <div class="intro-reservation__content reservation-container">
+                        <div class="intro-reservation__inbox">
+                            <h1 class="title-h1 intro-reservation__title">Думаете, где отпраздновать День рождения
+                                ребенка?</h1>
+
+                            <div class="intro-reservation__desc">
+                                <div class="intro-reservation__desc-border">
+                                    <div class="intro-reservation__desc-inbox">
+                                        <div class="intro-reservation__desc-text">
+                                            <p>Город развлечений <b>«Веселкино»</b> приглашает юных именинников
+                                                отметить это
+                                                событие у нас!</p>
+                                            <p>Мы организуем для Вашего ребенка незабываемый праздник!</p>
+                                        </div>
+                                        <div class="intro-reservation__desc-bold">
+                                            Теперь для наших клиентов доступно бронирование Дня рождения on-line!
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="intro-reservation__balloon"></div>
                         </div>
+                        <div class="intro-reservation__balloon"></div>
                     </div>
-                    <div class="intro-reservation__world">
-                        <div class="reservation">
-                            <div class="reservation-container">
-                                <div class="reservation__title title-h2">Бронирование дня рождения</div>
-                                <div class="reservation__choice">
-                                    <label class="reservation__date"><span>Дата</span>
-                                        <input type="date" name="date">
-                                    </label>
-                                    <label class="reservation__time"><span>Время</span>
-                                        <input type="time" name="time">
-                                    </label>
-                                    <label class="reservation__select"><span>Количество гостей (дети + взрослые)</span>
-                                        <select name="count">
-                                            <option value="До 7 человек">До 7 человек</option>
-                                            <option value="До 5 человек">До 5 человек</option>
-                                        </select>
-                                    </label>
-                                    <div class="reservation-tariff__list">
-                                        <div class="reservation-tariff__item">
-                                            <div class="reservation-tariff__inner" style="background-image: url('images/reservation/tariffs/tariff-1.svg')">
-                                                <div class="reservation-tariff__title">
-                                                        Базовый
-                                                </div>
-                                                <div class="reservation-tariff__desc">
-                                                    <div class="reservation-tariff__text">
+
+                    <div class="reservation">
+                        <div class="reservation-container">
+                            <div class="reservation__title title-h2">Бронирование дня рождения</div>
+                            <div class="reservation__choice">
+                                <label class="reservation__date contact-form__date"><span>Дата</span>
+                                    <input placeholder="дд/мм/гггг" data-masked="date" type="text"  name="date">
+                                </label>
+                                <label class="reservation__time"><span>Время</span>
+                                    <select name="time">
+                                        <option value="11:00">11:00</option>
+                                        <option value="14:30">14:30</option>
+                                        <option value="18:00">18:00</option>
+                                    </select>
+                                </label>
+                                <label class="reservation__select"><span>Количество гостей (дети + взрослые)</span>
+                                    <select name="count">
+                                        <option value="7">До 7 человек</option>
+                                        <option value="15">До 15 человек</option>
+                                        <option value="25">До 25 человек</option>
+                                    </select>
+                                </label>
+                                <div class="reservation-tariff__list">
+                                    <div class="reservation-tariff__item">
+                                        <div class="reservation-tariff__inner"
+                                             style="background-image: url('images/reservation/tariffs/tariff-1.svg')">
+                                            <div class="reservation-tariff__title">
+                                                Базовый
+                                            </div>
+                                            <div class="reservation-tariff__desc">
+                                                <div class="reservation-tariff__text">
                                                         <span>
                                                             Что включено:
                                                         </span>
-                                                            Аренда зоны празднования на 3 часа, 
-                                                            доступ во все зоны развлекательного центра на 3 часа, 
-                                                            возможность пользоваться кухней (холодильник, микроволновка, чайник, раковина).
-                                                    </div>
-                                                </div>
-                                                <div class="reservation-tariff__bottom">
-                                                    <div class="reservation-tariff__text">
-                                                        <span>
-                                                                Количество гостей
-                                                        </span>
-                                                        12 гостей, 1 именинник и 2 взрослых.
-                                                    </div>
-                                                    <div class="reservation-tariff__price">
-                                                            6000 руб.
-                                                    </div>
+                                                    Аренда зоны празднования на 3 часа,
+                                                    доступ во все зоны развлекательного центра на 3 часа,
+                                                    возможность пользоваться кухней (холодильник, микроволновка, чайник,
+                                                    раковина).
                                                 </div>
                                             </div>
-                                        </div>
-
-                                        <div class="reservation-tariff__item">
-                                            <div class="reservation-tariff__inner" style="background-image: url('images/reservation/tariffs/tariff-2.svg')">
-
-                                                <div class="reservation-tariff__title">
-                                                        Базовый +
-                                                </div>
-                                                <div class="reservation-tariff__desc">
-                                                    <div class="reservation-tariff__text">
-                                                        <span>
-                                                            Что включено:
-                                                        </span>
-                                                            Аренда зоны празднования на 3 часа, 
-                                                            доступ во все зоны развлекательного центра на 3 часа,
-                                                            возможность пользоваться кухней (холодильник, микроволновка, чайник, раковина), 
-                                                            анимация/квест (на выбор) в течение 40 минут.
-                                                    </div>
-                                                </div>
-                                                <div class="reservation-tariff__bottom">
-                                                    <div class="reservation-tariff__text">
+                                            <div class="reservation-tariff__bottom">
+                                                <div class="reservation-tariff__text">
                                                         <span>
                                                                 Количество гостей
                                                         </span>
-                                                        12 гостей, 1 именинник и 2 взрослых.
-                                                    </div>
-                                                    <div class="reservation-tariff__price">
-                                                            8000 руб.
-                                                    </div>
+                                                    12 гостей, 1 именинник и 2 взрослых.
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <div class="reservation-tariff__item">
-                                            <div class="reservation-tariff__inner" style="background-image: url('images/reservation/tariffs/tariff-3.svg')">
-                                                <div class="reservation-tariff__title">
-                                                        Все включено
-                                                </div>
-                                                <div class="reservation-tariff__desc">
-                                                    <div class="reservation-tariff__text">
-                                                        <span>
-                                                            Что включено:
-                                                        </span>
-                                                            Аренда зоны празднования на 3 часа, 
-                                                            доступ во все зоны развлекательного центра на 3 часа, 
-                                                            возможность пользоваться кухней (холодильник, микроволновка, чайник, раковина), 
-                                                            анимация/квест (на выбор) в течение 40 минут, оформление зоны шарами и баннером в желаемой тематике, 
-                                                            час работы фотографа.
-                                                    </div>
-                                                </div>
-                                                <div class="reservation-tariff__bottom">
-                                                    <div class="reservation-tariff__text">
-                                                        <span>
-                                                                Количество гостей
-                                                        </span>
-                                                        12 гостей, 1 именинник и 2 взрослых.
-                                                    </div>
-                                                    <div class="reservation-tariff__price">
-                                                            15000 руб.
-                                                    </div>
+                                                <div class="reservation-tariff__price">
+                                                    6000 руб.
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
 
+                                    <div class="reservation-tariff__item">
+                                        <div class="reservation-tariff__inner"
+                                             style="background-image: url('images/reservation/tariffs/tariff-2.svg')">
 
+                                            <div class="reservation-tariff__title">
+                                                Базовый +
+                                            </div>
+                                            <div class="reservation-tariff__desc">
+                                                <div class="reservation-tariff__text">
+                                                        <span>
+                                                            Что включено:
+                                                        </span>
+                                                    Аренда зоны празднования на 3 часа,
+                                                    доступ во все зоны развлекательного центра на 3 часа,
+                                                    возможность пользоваться кухней (холодильник, микроволновка, чайник,
+                                                    раковина),
+                                                    анимация/квест (на выбор) в течение 40 минут.
+                                                </div>
+                                            </div>
+                                            <div class="reservation-tariff__bottom">
+                                                <div class="reservation-tariff__text">
+                                                        <span>
+                                                                Количество гостей
+                                                        </span>
+                                                    12 гостей, 1 именинник и 2 взрослых.
+                                                </div>
+                                                <div class="reservation-tariff__price">
+                                                    8000 руб.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="reservation-tariff__item">
+                                        <div class="reservation-tariff__inner"
+                                             style="background-image: url('images/reservation/tariffs/tariff-3.svg')">
+                                            <div class="reservation-tariff__title">
+                                                Все включено
+                                            </div>
+                                            <div class="reservation-tariff__desc">
+                                                <div class="reservation-tariff__text">
+                                                        <span>
+                                                            Что включено:
+                                                        </span>
+                                                    Аренда зоны празднования на 3 часа,
+                                                    доступ во все зоны развлекательного центра на 3 часа,
+                                                    возможность пользоваться кухней (холодильник, микроволновка, чайник,
+                                                    раковина),
+                                                    анимация/квест (на выбор) в течение 40 минут, оформление зоны шарами
+                                                    и баннером в желаемой тематике,
+                                                    час работы фотографа.
+                                                </div>
+                                            </div>
+                                            <div class="reservation-tariff__bottom">
+                                                <div class="reservation-tariff__text">
+                                                        <span>
+                                                                Количество гостей
+                                                        </span>
+                                                    12 гостей, 1 именинник и 2 взрослых.
+                                                </div>
+                                                <div class="reservation-tariff__price">
+                                                    15000 руб.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
+
+
                             </div>
                         </div>
                     </div>
+
                     <section class="zones">
                         <div class="zones__title title-h2">
-                                Зоны празднования
+                            Зоны празднования
                         </div>
                     </section>
                     <section class="section-form">
@@ -332,37 +351,55 @@
                                 <div class="contact__title title-h2">
                                     Контактные данные
                                 </div>
-                                <form class="contact-form" action="" method="POST">
-                                    <label class="contact-form__label"><span>ФИО родителя</span>
-                                        <input class="contact-form__input-text"type="text" name="name" placeholder="Иванов Иван Иванович">
+                                <form js-reservation class="contact-form" action="" method="POST">
+                                    <label js-inputShadow class="field field_clean contact-form__label">
+                                        <span class="field__title">ФИО родителя</span>
+                                        <span class="field__error">Как к вам обратиться?</span>
+                                        <input type="text" name="name" class="field__input" tabindex="1">
                                     </label>
-                                    <label class="contact-form__label"><span>ФИО ребенка</span>
-                                        <input class="contact-form__input-text"type="text" name="name" placeholder="Иванов Иван">
+                                    <label js-inputShadow class="field field_clean contact-form__label">
+                                        <span class="field__title">ФИО ребенка</span>
+                                        <span class="field__error">Как зовут Вашего ребенка?</span>
+                                        <input type="text" name="name-children" class="field__input">
                                     </label>
                                     <div class="contact-form__hulf">
-                                        <label class="contact-form__label"><span>Дата</span>
-                                            <input type="date" name="date">
+
+                                        <label js-inputShadow class="field field_clean contact-form__label contact-form__date">
+                                            <span class="field__title">День рождения ребёнка</span>
+                                            <span class="field__error">День рождения ребёнка?</span>
+                                            <input data-masked="date" type="text" name="birthday" class="field__input ">
                                         </label>
-                                        <label class="contact-form__label"><span>Телефон</span>
-                                            <input class="contact-form__input-text" type="text" name="phone" placeholder="Телефон"
-                                                    data-tooltip-type="phone">
+                                        <label js-inputShadow class="field field_clean contact-form__label">
+                                            <span class="field__title">Номер телефона</span>
+                                            <span class="field__error">На какой номер нам перезвонить?</span>
+                                            <input data-masked="phone" type="text" name="phone" class="field__input">
                                         </label>
                                     </div>
-                                    <label class="contact-form__label"><span>E-mail</span>
-                                        <input class="contact-form__input-text" type="text" name="email" placeholder="example@gmail.com"
-                                                data-tooltip-type="email">
+                                    <label js-inputShadow class="field field_clean contact-form__label">
+                                        <span class="field__title">Email</span>
+                                        <span class="field__error">На эту почту мы напишем ответ</span>
+                                        <input type="text" name="email" class="field__input">
                                     </label>
-                                            <span class="contact-form__label-text">Согласие на обработку персональных данных</span>
-                                        <button class="button button-contact-form" type="submit">Отправить</button>
+
+                                    <div class="actions-set actions-set_margin-top_xsmall">
+                                        <div class="actions-set__main actions-set__main_full actions-set__main_align_center actions-set__main_simple">
+                                            Отправляя форму, вы соглашаетесь с <a href="#" class="contact-us__link">политикой конфиденциальности</a>
+                                        </div>
+                                    </div>
+                                    <div class="actions-set actions-set_margin-top_small contact-form__button">
+                                        <div class="actions-set__main actions-set__main_full">
+                                            <button type="submit" class="actions-set__action button button_background_orange button button_medium button_full"><span class="button__title" >Отправить</span></button>
+                                        </div>
+                                    </div>
+                                    <div class="contact-form__label-text">После оформления заявки с Вами свяжется наш менеджер для уточнения деталей.</div>
                                 </form>
                             </div>
                         </div>
                         <div class="contact-form__thanks title-h1">
                             Благодарим, что выбрали нас!
                         </div>
-                        
 
-                  
+
                     </section>
                 </div>
 

@@ -4,56 +4,47 @@
     padding: 0 20px;
 }
 
+.intro-reservation {
+    position: relative;
+}
+
 .intro-reservation__bg {
     width: 100%;
     min-height: 1319px;
-    background: linear-gradient(
-        180deg,
-        #3bb5fc 0%,
-        #abecfe 59.79%,
-        #a9eafe 100%
-    );
+    background: url("../images/reservation/intro/bg.svg") no-repeat center top;
 }
 
-.intro-reservation__sky,
-.intro-reservation__world,
+.intro-reservation__bg::before {
+    content: "";
+    position: absolute;
+    top: 25px;
+    background: url("../images/reservation/intro/sky.svg") no-repeat center
+        center;
+    width: 1620px;
+    height: 680px;
+    z-index: 1;
+    /*-webkit-animation: bouncingUpDown 7s cubic-bezier(1,.3,.1,0) infinite;
+    -moz-animation: bouncingUpDown 7s cubic-bezier(1,.3,.1,0) infinite;
+    -o-animation: bouncingUpDown 7s cubic-bezier(1,.3,.1,0) infinite;
+    -ms-animation: bouncingUpDown 7s cubic-bezier(1,.3,.1,0) infinite;
+    animation: bouncingUpDown 7s cubic-bezier(1,.3,.1,0) infinite;*/
+}
+
 .intro-reservation__balloon {
     position: relative;
 }
 
-.intro-reservation__sky {
-    min-height: 680px;
-}
-.intro-reservation__sky::before {
-    content: "";
-    position: absolute;
-    top: 25px;
-    left: 0;
-    background: url("../images/reservation/intro/sky.svg") no-repeat center
-        center;
-    width: 100%;
-    height: 680px;
-    z-index: 1;
-}
-
-.intro-reservation__world {
-    min-height: 1302px;
-}
-.intro-reservation__world::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: url("../images/reservation/intro/world.svg") no-repeat center
-        center;
-    width: 100%;
-    height: 1302px;
-    z-index: 2;
-    overflow: hidden;
-}
-
 .intro-reservation__balloon {
     width: 50%;
+    opacity: 1;
+    -ms-filter: none;
+    filter: none;
+    -webkit-animation: bouncingUpDown 5s cubic-bezier(0,.1,.3,1) infinite;
+    -moz-animation: bouncingUpDown 5s cubic-bezier(0,.1,.3,1) infinite;
+    -o-animation: bouncingUpDown 5s cubic-bezier(0,.1,.3,1) infinite;
+    -ms-animation: bouncingUpDown 5s cubic-bezier(0,.1,.3,1) infinite;
+    animation: bouncingUpDown 5s cubic-bezier(0,.1,.3,1) infinite;
+    z-index: 1;
 }
 .intro-reservation__balloon::before {
     content: "";
@@ -63,9 +54,38 @@
     background: url("../images/reservation/intro/balloon.svg") no-repeat center
         center;
     left: 90px;
-    top: 0;
+    top: -50px;
     z-index: 3;
 }
+
+.intro-reservation__balloon-mini-1,
+.intro-reservation__balloon-mini-2 {
+    content: '';
+    position: absolute;
+
+}
+.intro-reservation__balloon-mini-1 {
+    background: url("../images/reservation/intro/balloon-mini-1.svg") no-repeat;
+    width: 80px;
+    height: 109px;
+    left: 35.86%;
+    top: 0.65%;
+}
+
+.intro-reservation__balloon-mini-2 {
+    background: url("../images/reservation/intro/balloon-mini-2.svg") no-repeat;
+    width: 45px;
+    height: 61px;
+    left: 5.29%;
+    top: 23.23%;
+}
+
+
+
+
+
+
+
 
 .intro-reservation__content {
     display: flex;
@@ -102,7 +122,7 @@
     position: relative;
     left: -15px;
     top: 8px;
-    transform: rotate(-0.26deg);
+    transform: rotate(-0.74deg);
 }
 
 .intro-reservation__desc-text {
@@ -143,6 +163,10 @@
     margin-bottom: 50px;
 }
 
+.reservation__choice input,
+.reservation__choice select {
+    margin-top: 4px;
+}
 .reservation__choice label {
     font-size: 14px;
     line-height: 16px;
@@ -158,6 +182,11 @@
 
 .reservation__choice label span {
     margin-left: 20px;
+    font-family: Roboto, Arial, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    color: #FFFFFF;
 }
 
 .reservation__date {
@@ -165,13 +194,29 @@
 }
 
 .reservation__time {
+    position: relative;
     max-width: 115px;
 }
 
 .reservation__select {
+    position: relative;
     max-width: 295px;
 }
 
+.reservation__time::after,
+.reservation__select::after {
+    content: '';
+    position: absolute;
+    bottom: 12px;
+    right: 20px;
+    width: 14px;
+    height: 15px;
+    background: url("data:image/svg+xml;charset=utf-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20d%3D%22M4.94%205.72668L8%208.78002L11.06%205.72668L12%206.66668L8%2010.6667L4%206.66668L4.94%205.72668Z%22%20fill%3D%22%23FBCB38%22%2F%3E%0A%3C%2Fsvg%3E%0A") no-repeat;
+    -webkit-background-size: 100% 100%;
+    -moz-background-size: 100% 100%;
+    background-size: 100% 100%;
+
+}
 .reservation-tariff__list {
     display: flex;
     justify-content: space-between;
@@ -184,10 +229,10 @@
     width: 380px;
     min-height: 623px;
     background: url("../images/reservation/tariffs/tariff-bg.svg") no-repeat
-        center;
+        center top;
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
     border-radius: 10px;
-    background-color: #ffffff;
+    background-color: #87B24D;
 }
 
 .reservation-tariff__inner {
@@ -201,6 +246,19 @@
     background-position-x: center;
     background-position-y: 46px;
 }
+
+.reservation-tariff__item:nth-child(1) .reservation-tariff__inner {
+    background-position-y: 46px;
+}
+
+.reservation-tariff__item:nth-child(2) .reservation-tariff__inner{
+    background-position-y: 13px;
+}
+
+.reservation-tariff__item:nth-child(3) .reservation-tariff__inner{
+    background-position-y: 45px;
+}
+
 
 .reservation-tariff__item:last-child {
     margin-right: 0;
@@ -286,7 +344,29 @@
 .contact-form__wrap {
     padding-top: 100px;
 }
+.contact-form__date {
+    position: relative;
+}
+.contact-form .contact-form__date input {
+    padding-right: 25px;
+}
 
+.contact-form .contact-form__date span {
+    right: 40px;
+}
+.contact-form__date::after {
+    content: '';
+    position: absolute;
+    bottom: 15px;
+    right: 20px;
+    width: 14px;
+    height: 15px;
+    background: url("data:image/svg+xml;charset=utf-8,%3Csvg width=%2214%22 height=%2215%22 viewBox=%220 0 14 15%22 xmlns=%22http://www.w3.org/2000/svg%22 xmlns:xlink=%22http://www.w3.org/1999/xlink%22 preserveAspectRatio=%22none%22%3E%3Ctitle%3EGroup%3C/title%3E%3Cdesc%3ECreated using Figma%3C/desc%3E%3Cuse xlink:href=%22%23a%22 fill=%22%2388d528%22/%3E%3Cuse xlink:href=%22%23b%22 transform=%22translate(2.99 6.52)%22 fill=%22%2388d528%22/%3E%3Cuse xlink:href=%22%23c%22 transform=%22translate(6.21 6.52)%22 fill=%22%2388d528%22/%3E%3Cuse xlink:href=%22%23d%22 transform=%22translate(9.43 6.52)%22 fill=%22%2388d528%22/%3E%3Cuse xlink:href=%22%23e%22 transform=%22translate(2.99 9.72)%22 fill=%22%2388d528%22/%3E%3Cuse xlink:href=%22%23f%22 transform=%22translate(6.21 9.72)%22 fill=%22%2388d528%22/%3E%3Cuse xlink:href=%22%23g%22 transform=%22translate(9.43 9.72)%22 fill=%22%2388d528%22/%3E%3Cdefs%3E%3Cpath id=%22a%22 d=%22M12.958 1.814h-1.146v-.777c0-.57-.468-1.037-1.041-1.037h-.042c-.573 0-1.041.466-1.041 1.037v.777H4.311v-.777C4.313.467 3.845 0 3.272 0h-.042c-.573 0-1.042.466-1.042 1.037v.777H1.042C.469 1.814 0 2.281 0 2.851v11.112C0 14.533.469 15 1.042 15h11.916c.573 0 1.042-.466 1.042-1.037V2.851c0-.57-.469-1.037-1.042-1.037zm-.328 11.854H1.37v-9.03h11.26v9.03z%22/%3E%3Cpath id=%22b%22 d=%22M.823 1.638a.823.823 0 0 0 .823-.82.823.823 0 0 0-1.646 0c0 .452.365.82.823.82z%22/%3E%3Cpath id=%22c%22 d=%22M.823 1.638a.823.823 0 0 0 .823-.82.823.823 0 0 0-1.646 0 .816.816 0 0 0 .823.82z%22/%3E%3Cpath id=%22d%22 d=%22M.823 1.638a.823.823 0 0 0 .823-.82.823.823 0 0 0-1.646 0c0 .452.37.82.823.82z%22/%3E%3Cpath id=%22e%22 d=%22M.823 1.638a.823.823 0 0 0 .823-.82.823.823 0 0 0-1.646 0c0 .452.365.82.823.82z%22/%3E%3Cpath id=%22f%22 d=%22M.823 1.638a.823.823 0 0 0 .823-.82.823.823 0 0 0-1.646 0 .816.816 0 0 0 .823.82z%22/%3E%3Cpath id=%22g%22 d=%22M.823 1.638a.823.823 0 0 0 .823-.82.823.823 0 0 0-1.646 0c0 .452.37.82.823.82z%22/%3E%3C/defs%3E%3C/svg%3E") no-repeat;
+    -webkit-background-size: 100% 100%;
+    -moz-background-size: 100% 100%;
+    background-size: 100% 100%;
+
+}
 .contact__title {
     text-align: center;
     color: #ffffff;
@@ -297,8 +377,11 @@
     margin-bottom: 24px;
 }
 
-.contact-form__label span {
-    margin-left: 20px;
+.contact-form .contact-form__label span {
+    color: rgba(1, 1, 1, .3);
+}
+
+.contact-form .contact-form__label.is-filled span {
     color: #ffffff;
 }
 
@@ -307,11 +390,14 @@
 }
 
 .contact-form__label-text {
+
+    margin-top: 20px;
     font-family: Roboto, Arial, sans-serif;
     color: #ffffff;
     font-size: 14px;
     font-style: normal;
     font-weight: normal;
+    text-align: center;
 }
 
 .contact-form__hulf {
@@ -325,10 +411,16 @@
     margin-bottom: 0;
 }
 
+.contact-form__button {
+    width: 180px;
+    margin: auto;
+    margin-top: 20px;
+}
+
 .contact-form__thanks {
+    margin-top: 75px;
     text-align: center;
     color: #32bc4f;
-    padding-bottom: 45px;
 }
 
 .button-contact-form {
