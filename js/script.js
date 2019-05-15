@@ -22,3 +22,41 @@ $(function () {
         })
     })
 });
+
+console.log('test');
+$(function () {
+    $(".js-reservation-slider").slick(
+        {
+            prevArrow: '<button type="button" class="slick-prev"><span class="slick-arrow-icon"></span></button>',
+            nextArrow: '<button type="button" class="slick-next"><span class="slick-arrow-icon"></span></button>',
+            rows: 0,
+            mobileFirst: true,
+            speed: 400,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            centerMode: true,
+            swipeToSlide: true,
+            infinite: false,
+            adaptiveHeight: true,
+            variableWidth: true,
+            responsive: [
+                {
+                    breakpoint: 768,
+                    settings: "unslick"
+                }
+            ]
+        }
+    );
+    console.log($(".js-zones-slider"));
+    $(".js-zones-slider").slick(
+        {
+            arrows: false,
+            dots: true,
+            speed: 400,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            swipeToSlide: false,
+            infinite: false,
+        }
+    );
+});

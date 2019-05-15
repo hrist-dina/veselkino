@@ -18,10 +18,12 @@
     content: "";
     position: absolute;
     top: 25px;
-    background: url("../images/reservation/intro/sky.svg") no-repeat center
-        center;
+    background: url("../images/reservation/intro/sky.svg") no-repeat center center;
     width: 1620px;
     height: 680px;
+    right: 0;
+    left: 0;
+    margin: auto;
     z-index: 1;
     /*-webkit-animation: bouncingUpDown 7s cubic-bezier(1,.3,.1,0) infinite;
     -moz-animation: bouncingUpDown 7s cubic-bezier(1,.3,.1,0) infinite;
@@ -39,20 +41,20 @@
     opacity: 1;
     -ms-filter: none;
     filter: none;
-    -webkit-animation: bouncingUpDown 5s cubic-bezier(0,.1,.3,1) infinite;
-    -moz-animation: bouncingUpDown 5s cubic-bezier(0,.1,.3,1) infinite;
-    -o-animation: bouncingUpDown 5s cubic-bezier(0,.1,.3,1) infinite;
-    -ms-animation: bouncingUpDown 5s cubic-bezier(0,.1,.3,1) infinite;
-    animation: bouncingUpDown 5s cubic-bezier(0,.1,.3,1) infinite;
+    -webkit-animation: bouncingUpDown 5s cubic-bezier(0, .1, .3, 1) infinite;
+    -moz-animation: bouncingUpDown 5s cubic-bezier(0, .1, .3, 1) infinite;
+    -o-animation: bouncingUpDown 5s cubic-bezier(0, .1, .3, 1) infinite;
+    -ms-animation: bouncingUpDown 5s cubic-bezier(0, .1, .3, 1) infinite;
+    animation: bouncingUpDown 5s cubic-bezier(0, .1, .3, 1) infinite;
     z-index: 1;
 }
+
 .intro-reservation__balloon::before {
     content: "";
     position: absolute;
     width: 675px;
     height: 719px;
-    background: url("../images/reservation/intro/balloon.svg") no-repeat center
-        center;
+    background: url("../images/reservation/intro/balloon.svg") no-repeat center center;
     left: 90px;
     top: -50px;
     z-index: 3;
@@ -64,6 +66,7 @@
     position: absolute;
 
 }
+
 .intro-reservation__balloon-mini-1 {
     background: url("../images/reservation/intro/balloon-mini-1.svg") no-repeat;
     width: 80px;
@@ -81,15 +84,12 @@
 }
 
 
-
-
-
-
-
-
 .intro-reservation__content {
     display: flex;
+    position: relative;
+    z-index: 1;
 }
+
 .intro-reservation__inbox {
     padding-top: 160px;
     width: 50%;
@@ -152,7 +152,7 @@
 .reservation {
     position: relative;
     padding-top: 600px;
-    padding-bottom: 200px;
+    padding-bottom: 100px;
     z-index: 2;
     text-align: center;
 }
@@ -167,6 +167,7 @@
 .reservation__choice select {
     margin-top: 4px;
 }
+
 .reservation__choice label {
     font-size: 14px;
     line-height: 16px;
@@ -181,6 +182,7 @@
 }
 
 .reservation__choice label span {
+    display: inline-block;
     margin-left: 20px;
     font-family: Roboto, Arial, sans-serif;
     font-style: normal;
@@ -217,22 +219,35 @@
     background-size: 100% 100%;
 
 }
+
 .reservation-tariff__list {
     display: flex;
     justify-content: space-between;
-    margin-top: 50px;
+    margin-top: 30px;
+
 }
 
+.reservation-tariff__list .slick-list {
+    padding: 20px 10px;
+}
+
+
 .reservation-tariff__item {
-    margin-right: 12px;
+    margin: 0 5px;
 
     width: 380px;
-    min-height: 623px;
-    background: url("../images/reservation/tariffs/tariff-bg.svg") no-repeat
-        center top;
+    min-height: 730px;
+    background: url("../images/reservation/tariffs/tariff-bg.svg") no-repeat center top;
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
     border-radius: 10px;
     background-color: #87B24D;
+    transition: .2s ease-out;
+}
+
+.reservation-tariff__item:hover {
+    -webkit-box-shadow: 0 20px 40px rgba(1, 1, 1, .15);
+    box-shadow: 0 20px 40px rgba(1, 1, 1, .15);
+    cursor: pointer;
 }
 
 .reservation-tariff__inner {
@@ -248,27 +263,23 @@
 }
 
 .reservation-tariff__item:nth-child(1) .reservation-tariff__inner {
-    background-position-y: 46px;
+    background-position-y: 100px;
 }
 
-.reservation-tariff__item:nth-child(2) .reservation-tariff__inner{
-    background-position-y: 13px;
+.reservation-tariff__item:nth-child(2) .reservation-tariff__inner {
+    background-position-y: 38px;
 }
 
-.reservation-tariff__item:nth-child(3) .reservation-tariff__inner{
-    background-position-y: 45px;
+.reservation-tariff__item:nth-child(3) .reservation-tariff__inner {
+    background-position-y: 95px;
 }
 
-
-.reservation-tariff__item:last-child {
-    margin-right: 0;
-}
 
 .reservation-tariff__title {
     font-family: "_kiddy", "Trebuchet MS", Arial, sans-serif;
     font-size: 24px;
     color: #2f6ebd;
-    font-weight: 500;
+    font-weight: bold;
 }
 
 .reservation-tariff__text span {
@@ -288,22 +299,16 @@
 }
 
 .reservation-tariff__price {
-    font-family: Roboto, Arial, sans-serif;
-    color: #ffffff;
-    font-style: normal;
+    font-size: 24px;
+    line-height: 24px;
+    text-align: center;
     font-weight: bold;
-    font-size: 18px;
-    padding: 20px 15px 10px;
-    margin-top: 10px;
-    background: #e6142a;
-    display: inline-block;
-    border-top-left-radius: 100px;
-    border-top-right-radius: 100px;
+    color: #E6142A;
 }
 
 .reservation-tariff__desc {
     flex: 1 0 auto;
-    margin-top: 250px;
+    margin-top: 300px;
 }
 
 .reservation-tariff__bottom {
@@ -313,19 +318,33 @@
     border-top: 2px solid #ffffff;
 }
 
-.zones__title {
-    text-align: center;
-    color: #32bc4f;
+.reservation-tariff__button .button {
+    border: none;
+}
+
+.reservation-tariff__button {
+    display: block;
+    margin: 25px 0;
+    border: none;
+}
+
+.reservation-tariff__button input {
+    display: none;
+}
+
+.reservation-tariff__button input:checked ~ .button {
+    background-color: #1a7ec3;
+    color: #fff;
 }
 
 .section-form {
-    background: url("../images/reservation/contact/contact-bg.svg") no-repeat
-        center center;
+    background: url("../images/reservation/contact/contact-bg.svg") no-repeat center center;
     width: 100%;
     min-height: 756px;
     padding-top: 100px;
     background-color: #fff;
 }
+
 .contact-form {
     max-width: 380px;
     margin: auto;
@@ -344,9 +363,11 @@
 .contact-form__wrap {
     padding-top: 100px;
 }
+
 .contact-form__date {
     position: relative;
 }
+
 .contact-form .contact-form__date input {
     padding-right: 25px;
 }
@@ -354,6 +375,7 @@
 .contact-form .contact-form__date span {
     right: 40px;
 }
+
 .contact-form__date::after {
     content: '';
     position: absolute;
@@ -367,6 +389,7 @@
     background-size: 100% 100%;
 
 }
+
 .contact__title {
     text-align: center;
     color: #ffffff;
@@ -425,4 +448,227 @@
 
 .button-contact-form {
     color: #ffffff;
+}
+
+/* Зоны празднования */
+
+
+
+.zones__list {
+    margin-top: 70px;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.zones__list::before {
+    content: '';
+    position: absolute;
+    background: url("../images/reservation/zones/cloud.svg") center no-repeat;
+    width: 275px;
+    height: 190px;
+    left: -200px;
+    top: -200px;
+}
+
+.zones__list::after {
+    content: '';
+    position: absolute;
+    background: url("../images/reservation/zones/ballons.svg") center no-repeat;
+    width: 260px;
+    height: 619px;
+    right: -160px;
+    top: -260px;
+    z-index: -1;
+}
+
+.zones__title {
+    text-align: center;
+    color: #32bc4f;
+}
+
+
+.zones__item {
+    width: calc(50% - 10px);
+    position: relative;
+    display: inline-block;
+    background: #C4C4C4;
+    border-radius: 10px;
+    margin-bottom: 40px;
+}
+
+.zones__item img {
+    border-radius: 10px;
+    width: 100%;
+}
+
+.zones__name {
+    position: absolute;
+    display: inline-block;
+    background-color: #fff;
+    padding: 8px 10px;
+    border-radius: 10px;
+    max-height: 52px;
+    left: 30px;
+    top: -26px;
+    z-index: 1;
+}
+
+.zones__button {
+    display: inline-block;
+    max-width: 150px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 40px;
+    top: auto;
+    margin: auto;
+
+}
+
+.zones__slider ul li {
+    padding: 0;
+    margin: 0;
+}
+.zones__slider ul li::before {
+    content: none;
+}
+.zones__slider ul.slick-dots li {
+    width: 54px;
+    height: 6px;
+    background: #FFFFFF;
+    opacity: 0.5;
+    border-radius: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+.zones__slider ul.slick-dots li button {
+    display: none;
+}
+
+.zones__slider ul.slick-dots li.slick-active {
+    opacity: 1;
+}
+
+.zones__slider .slick-dots {
+    position: absolute;
+    left: 20px;
+    bottom: 0;
+    display: flex;
+    list-style-type: none;
+
+}
+
+
+
+@media (max-width: 1024px) {
+    .reservation {
+        padding-top: 550px;
+        padding-bottom: 100px;
+    }
+
+    .reservation-tariff__list {
+        margin-bottom: 0;
+    }
+
+    .intro-reservation__balloon {
+        animation: none;
+    }
+
+    .intro-reservation__elements {
+        display: none;
+    }
+
+    .contact-form::before {
+        left: -335px;
+    }
+
+    .intro-reservation__balloon::before {
+        top: 50px;
+        -ms-background-position-y: top;
+        background-position-y: top;
+        -ms-background-position-x: left;
+        background-position-x: left;
+        background-size: 80%;
+    }
+
+    .zones__list:before,
+    .zones__list:after {
+        content: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .reservation__select {
+        margin-top: 10px;
+        max-width: 100%;
+    }
+
+    .reservation__title {
+        margin-bottom: 20px;
+    }
+
+    .intro-reservation__content {
+        flex-direction: column;
+    }
+
+    .intro-reservation__inbox {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        order: 2;
+    }
+
+    .intro-reservation__balloon {
+        z-index: 1;
+        order: 1;
+        width: 100%;
+    }
+
+    .intro-reservation__balloon::before {
+        display: none;
+    }
+
+    .reservation-tariff__list {
+        margin-left: -20px;
+        margin-right: -20px;
+    }
+
+    .contact-form::before {
+        display: none;
+    }
+}
+
+@media (max-width: 425px) {
+    .reservation {
+        padding-top: 500px;
+    }
+
+    .reservation__time {
+        margin-top: 10px;
+    }
+
+    .intro-reservation__title {
+        font-size: 34px;
+        line-height: 45px;
+    }
+
+    .intro-reservation__desc-inbox {
+        padding: 25px;
+    }
+
+    .zones__item {
+        width: 100%;
+    }
+}
+
+@media (max-width: 320px) {
+    .reservation {
+        padding-top: 400px;
+    }
+
+    .reservation-tariff__item {
+        max-width: 310px;
+    }
 }
