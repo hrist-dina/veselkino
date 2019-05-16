@@ -365,7 +365,7 @@
                                     </div>
                                     <div class="reservation__choice">
                                         <label
-                                            class="reservation__date contact-form__date"
+                                            class="reservation__date contact-form__date js-form-reservation-date"
                                             ><span>Дата</span>
                                             <input
                                                 placeholder="дд / мм / гггг"
@@ -374,247 +374,19 @@
                                                 name="date"
                                             />
                                         </label>
-                                        <label class="reservation__time"
+                                        <label class="reservation__time js-render-time-select js-form-reservation-time"
                                             ><span>Время</span>
-                                            <select name="time">
-                                                <option value="11:00"
-                                                    >11:00</option
-                                                >
-                                                <option value="14:30"
-                                                    >14:30</option
-                                                >
-                                                <option value="18:00"
-                                                    >18:00</option
-                                                >
-                                            </select>
                                         </label>
-                                        <label class="reservation__select"
+                                        <label class="reservation__select js-render-count-select js-form-reservation-count"
                                             ><span
                                                 >Количество гостей (дети +
                                                 взрослые)</span
                                             >
-                                            <select name="count">
-                                                <option value="7"
-                                                    >До 7 человек</option
-                                                >
-                                                <option value="15"
-                                                    >До 15 человек</option
-                                                >
-                                                <option value="25"
-                                                    >До 25 человек</option
-                                                >
-                                            </select>
                                         </label>
                                     </div>
                                     <div
-                                        class="reservation-tariff__list articles_gallery js-reservation-slider"
+                                        class="reservation-tariff__list articles_gallery  js-render-tariffs js-form-reservation-tariffs"
                                     >
-                                        <div class="reservation-tariff__item">
-                                            <div
-                                                class="reservation-tariff__inner"
-                                                style="background-image: url('images/reservation/tariffs/tariff-1.svg')"
-                                            >
-                                                <div
-                                                    class="reservation-tariff__title"
-                                                >
-                                                    Базовый
-                                                </div>
-                                                <div
-                                                    class="reservation-tariff__price title-h4"
-                                                >
-                                                    6000 руб.
-                                                </div>
-                                                <div
-                                                    class="reservation-tariff__desc"
-                                                >
-                                                    <div
-                                                        class="reservation-tariff__text"
-                                                    >
-                                                        <span>
-                                                            Что включено:
-                                                        </span>
-                                                        Аренда зоны празднования
-                                                        на 3 часа, доступ во все
-                                                        зоны развлекательного
-                                                        центра на 3 часа,
-                                                        возможность пользоваться
-                                                        кухней (холодильник,
-                                                        микроволновка, чайник,
-                                                        раковина).
-                                                    </div>
-                                                </div>
-                                                <div
-                                                    class="reservation-tariff__bottom"
-                                                >
-                                                    <div
-                                                        class="reservation-tariff__text"
-                                                    >
-                                                        <span>
-                                                            Количество гостей
-                                                        </span>
-                                                        12 гостей, 1 именинник и
-                                                        2 взрослых.
-                                                    </div>
-
-                                                    <label
-                                                        class="reservation-tariff__button"
-                                                    >
-                                                        <input
-                                                            type="radio"
-                                                            name="tariff"
-                                                        />
-                                                        <span
-                                                            class="button button_medium"
-                                                        >
-                                                            <span
-                                                                class="button__content"
-                                                                >Выбрать</span
-                                                            >
-                                                        </span>
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="reservation-tariff__item">
-                                            <div
-                                                class="reservation-tariff__inner"
-                                                style="background-image: url('images/reservation/tariffs/tariff-2.svg')"
-                                            >
-                                                <div
-                                                    class="reservation-tariff__title"
-                                                >
-                                                    Базовый +
-                                                </div>
-                                                <div
-                                                    class="reservation-tariff__price title-h4"
-                                                >
-                                                    8000 руб.
-                                                </div>
-                                                <div
-                                                    class="reservation-tariff__desc"
-                                                >
-                                                    <div
-                                                        class="reservation-tariff__text"
-                                                    >
-                                                        <span>
-                                                            Что включено:
-                                                        </span>
-                                                        Аренда зоны празднования
-                                                        на 3 часа, доступ во все
-                                                        зоны развлекательного
-                                                        центра на 3 часа,
-                                                        возможность пользоваться
-                                                        кухней (холодильник,
-                                                        микроволновка, чайник,
-                                                        раковина),
-                                                        анимация/квест (на
-                                                        выбор) в течение 40
-                                                        минут.
-                                                    </div>
-                                                </div>
-                                                <div
-                                                    class="reservation-tariff__bottom"
-                                                >
-                                                    <div
-                                                        class="reservation-tariff__text"
-                                                    >
-                                                        <span>
-                                                            Количество гостей
-                                                        </span>
-                                                        12 гостей, 1 именинник и
-                                                        2 взрослых.
-                                                    </div>
-                                                    <label
-                                                        class="reservation-tariff__button"
-                                                    >
-                                                        <input
-                                                            type="radio"
-                                                            name="tariff"
-                                                        />
-                                                        <span
-                                                            class="button button_medium"
-                                                        >
-                                                            <span
-                                                                class="button__content"
-                                                                >Выбрать</span
-                                                            >
-                                                        </span>
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="reservation-tariff__item">
-                                            <div
-                                                class="reservation-tariff__inner"
-                                                style="background-image: url('images/reservation/tariffs/tariff-3.svg')"
-                                            >
-                                                <div
-                                                    class="reservation-tariff__title"
-                                                >
-                                                    Все включено
-                                                </div>
-                                                <div
-                                                    class="reservation-tariff__price title-h4"
-                                                >
-                                                    15000 руб.
-                                                </div>
-                                                <div
-                                                    class="reservation-tariff__desc"
-                                                >
-                                                    <div
-                                                        class="reservation-tariff__text"
-                                                    >
-                                                        <span>
-                                                            Что включено:
-                                                        </span>
-                                                        Аренда зоны празднования
-                                                        на 3 часа, доступ во все
-                                                        зоны развлекательного
-                                                        центра на 3 часа,
-                                                        возможность пользоваться
-                                                        кухней (холодильник,
-                                                        микроволновка, чайник,
-                                                        раковина),
-                                                        анимация/квест (на
-                                                        выбор) в течение 40
-                                                        минут, оформление зоны
-                                                        шарами и баннером в
-                                                        желаемой тематике, час
-                                                        работы фотографа.
-                                                    </div>
-                                                </div>
-                                                <div
-                                                    class="reservation-tariff__bottom"
-                                                >
-                                                    <div
-                                                        class="reservation-tariff__text"
-                                                    >
-                                                        <span>
-                                                            Количество гостей
-                                                        </span>
-                                                        12 гостей, 1 именинник и
-                                                        2 взрослых.
-                                                    </div>
-                                                    <label
-                                                        class="reservation-tariff__button"
-                                                    >
-                                                        <input
-                                                            type="radio"
-                                                            name="tariff"
-                                                        />
-                                                        <span
-                                                            class="button button_medium"
-                                                        >
-                                                            <span
-                                                                class="button__content"
-                                                                >Выбрать</span
-                                                            >
-                                                        </span>
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -625,7 +397,7 @@
                                 <div class="zones__title title-h2">
                                     Зоны празднования
                                 </div>
-                                <div class="zones__list">
+                                <div class="zones__list js-form-reservation-zones">
                                     <div class="zones__item">
                                         <div class="zones__name title-h2">
                                             Лондон
@@ -824,8 +596,7 @@
                                         Контактные данные
                                     </div>
                                     <form
-                                        js-reservation
-                                        class="contact-form"
+                                        class="contact-form js-form-reservation"
                                         action=""
                                         method="POST"
                                     >
