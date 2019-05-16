@@ -18,7 +18,8 @@
     content: "";
     position: absolute;
     top: 25px;
-    background: url("../images/reservation/intro/sky.svg") no-repeat center center;
+    background: url("../images/reservation/intro/sky.svg") no-repeat center
+        center;
     width: 1620px;
     height: 680px;
     right: 0;
@@ -41,11 +42,11 @@
     opacity: 1;
     -ms-filter: none;
     filter: none;
-    -webkit-animation: bouncingUpDown 5s cubic-bezier(0, .1, .3, 1) infinite;
-    -moz-animation: bouncingUpDown 5s cubic-bezier(0, .1, .3, 1) infinite;
-    -o-animation: bouncingUpDown 5s cubic-bezier(0, .1, .3, 1) infinite;
-    -ms-animation: bouncingUpDown 5s cubic-bezier(0, .1, .3, 1) infinite;
-    animation: bouncingUpDown 5s cubic-bezier(0, .1, .3, 1) infinite;
+    -webkit-animation: bouncingUpDown 5s cubic-bezier(0, 0.1, 0.3, 1) infinite;
+    -moz-animation: bouncingUpDown 5s cubic-bezier(0, 0.1, 0.3, 1) infinite;
+    -o-animation: bouncingUpDown 5s cubic-bezier(0, 0.1, 0.3, 1) infinite;
+    -ms-animation: bouncingUpDown 5s cubic-bezier(0, 0.1, 0.3, 1) infinite;
+    animation: bouncingUpDown 5s cubic-bezier(0, 0.1, 0.3, 1) infinite;
     z-index: 1;
 }
 
@@ -54,7 +55,8 @@
     position: absolute;
     width: 675px;
     height: 719px;
-    background: url("../images/reservation/intro/balloon.svg") no-repeat center center;
+    background: url("../images/reservation/intro/balloon.svg") no-repeat center
+        center;
     left: 90px;
     top: -50px;
     z-index: 3;
@@ -62,9 +64,8 @@
 
 .intro-reservation__balloon-mini-1,
 .intro-reservation__balloon-mini-2 {
-    content: '';
+    content: "";
     position: absolute;
-
 }
 
 .intro-reservation__balloon-mini-1 {
@@ -82,7 +83,6 @@
     left: 5.29%;
     top: 23.23%;
 }
-
 
 .intro-reservation__content {
     display: flex;
@@ -188,7 +188,7 @@
     font-style: normal;
     font-weight: normal;
     font-size: 14px;
-    color: #FFFFFF;
+    color: #ffffff;
 }
 
 .reservation__date {
@@ -207,46 +207,45 @@
 
 .reservation__time::after,
 .reservation__select::after {
-    content: '';
+    content: "";
     position: absolute;
     bottom: 12px;
     right: 20px;
     width: 14px;
     height: 15px;
-    background: url("data:image/svg+xml;charset=utf-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20d%3D%22M4.94%205.72668L8%208.78002L11.06%205.72668L12%206.66668L8%2010.6667L4%206.66668L4.94%205.72668Z%22%20fill%3D%22%23FBCB38%22%2F%3E%0A%3C%2Fsvg%3E%0A") no-repeat;
+    background: url("data:image/svg+xml;charset=utf-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20d%3D%22M4.94%205.72668L8%208.78002L11.06%205.72668L12%206.66668L8%2010.6667L4%206.66668L4.94%205.72668Z%22%20fill%3D%22%23FBCB38%22%2F%3E%0A%3C%2Fsvg%3E%0A")
+        no-repeat;
     -webkit-background-size: 100% 100%;
     -moz-background-size: 100% 100%;
     background-size: 100% 100%;
-
 }
 
 .reservation-tariff__list {
     display: flex;
     justify-content: space-between;
     margin-top: 30px;
-
 }
 
 .reservation-tariff__list .slick-list {
     padding: 20px 10px;
 }
 
-
 .reservation-tariff__item {
     margin: 0 5px;
 
     width: 380px;
     min-height: 730px;
-    background: url("../images/reservation/tariffs/tariff-bg.svg") no-repeat center top;
+    background: url("../images/reservation/tariffs/tariff-bg.svg") no-repeat
+        center top;
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
     border-radius: 10px;
-    background-color: #87B24D;
-    transition: .2s ease-out;
+    background-color: #87b24d;
+    transition: 0.2s ease-out;
 }
 
 .reservation-tariff__item:hover {
-    -webkit-box-shadow: 0 20px 40px rgba(1, 1, 1, .15);
-    box-shadow: 0 20px 40px rgba(1, 1, 1, .15);
+    -webkit-box-shadow: 0 20px 40px rgba(1, 1, 1, 0.15);
+    box-shadow: 0 20px 40px rgba(1, 1, 1, 0.15);
     cursor: pointer;
 }
 
@@ -273,7 +272,6 @@
 .reservation-tariff__item:nth-child(3) .reservation-tariff__inner {
     background-position-y: 95px;
 }
-
 
 .reservation-tariff__title {
     font-family: "_kiddy", "Trebuchet MS", Arial, sans-serif;
@@ -303,7 +301,7 @@
     line-height: 24px;
     text-align: center;
     font-weight: bold;
-    color: #E6142A;
+    color: #e6142a;
 }
 
 .reservation-tariff__desc {
@@ -338,7 +336,8 @@
 }
 
 .section-form {
-    background: url("../images/reservation/contact/contact-bg.svg") no-repeat center center;
+    background: url("../images/reservation/contact/contact-bg.svg") no-repeat
+        center center;
     width: 100%;
     min-height: 756px;
     padding-top: 100px;
@@ -377,17 +376,17 @@
 }
 
 .contact-form__date::after {
-    content: '';
+    content: "";
     position: absolute;
     bottom: 15px;
     right: 20px;
     width: 14px;
     height: 15px;
-    background: url("data:image/svg+xml;charset=utf-8,%3Csvg width=%2214%22 height=%2215%22 viewBox=%220 0 14 15%22 xmlns=%22http://www.w3.org/2000/svg%22 xmlns:xlink=%22http://www.w3.org/1999/xlink%22 preserveAspectRatio=%22none%22%3E%3Ctitle%3EGroup%3C/title%3E%3Cdesc%3ECreated using Figma%3C/desc%3E%3Cuse xlink:href=%22%23a%22 fill=%22%2388d528%22/%3E%3Cuse xlink:href=%22%23b%22 transform=%22translate(2.99 6.52)%22 fill=%22%2388d528%22/%3E%3Cuse xlink:href=%22%23c%22 transform=%22translate(6.21 6.52)%22 fill=%22%2388d528%22/%3E%3Cuse xlink:href=%22%23d%22 transform=%22translate(9.43 6.52)%22 fill=%22%2388d528%22/%3E%3Cuse xlink:href=%22%23e%22 transform=%22translate(2.99 9.72)%22 fill=%22%2388d528%22/%3E%3Cuse xlink:href=%22%23f%22 transform=%22translate(6.21 9.72)%22 fill=%22%2388d528%22/%3E%3Cuse xlink:href=%22%23g%22 transform=%22translate(9.43 9.72)%22 fill=%22%2388d528%22/%3E%3Cdefs%3E%3Cpath id=%22a%22 d=%22M12.958 1.814h-1.146v-.777c0-.57-.468-1.037-1.041-1.037h-.042c-.573 0-1.041.466-1.041 1.037v.777H4.311v-.777C4.313.467 3.845 0 3.272 0h-.042c-.573 0-1.042.466-1.042 1.037v.777H1.042C.469 1.814 0 2.281 0 2.851v11.112C0 14.533.469 15 1.042 15h11.916c.573 0 1.042-.466 1.042-1.037V2.851c0-.57-.469-1.037-1.042-1.037zm-.328 11.854H1.37v-9.03h11.26v9.03z%22/%3E%3Cpath id=%22b%22 d=%22M.823 1.638a.823.823 0 0 0 .823-.82.823.823 0 0 0-1.646 0c0 .452.365.82.823.82z%22/%3E%3Cpath id=%22c%22 d=%22M.823 1.638a.823.823 0 0 0 .823-.82.823.823 0 0 0-1.646 0 .816.816 0 0 0 .823.82z%22/%3E%3Cpath id=%22d%22 d=%22M.823 1.638a.823.823 0 0 0 .823-.82.823.823 0 0 0-1.646 0c0 .452.37.82.823.82z%22/%3E%3Cpath id=%22e%22 d=%22M.823 1.638a.823.823 0 0 0 .823-.82.823.823 0 0 0-1.646 0c0 .452.365.82.823.82z%22/%3E%3Cpath id=%22f%22 d=%22M.823 1.638a.823.823 0 0 0 .823-.82.823.823 0 0 0-1.646 0 .816.816 0 0 0 .823.82z%22/%3E%3Cpath id=%22g%22 d=%22M.823 1.638a.823.823 0 0 0 .823-.82.823.823 0 0 0-1.646 0c0 .452.37.82.823.82z%22/%3E%3C/defs%3E%3C/svg%3E") no-repeat;
+    background: url("data:image/svg+xml;charset=utf-8,%3Csvg width=%2214%22 height=%2215%22 viewBox=%220 0 14 15%22 xmlns=%22http://www.w3.org/2000/svg%22 xmlns:xlink=%22http://www.w3.org/1999/xlink%22 preserveAspectRatio=%22none%22%3E%3Ctitle%3EGroup%3C/title%3E%3Cdesc%3ECreated using Figma%3C/desc%3E%3Cuse xlink:href=%22%23a%22 fill=%22%2388d528%22/%3E%3Cuse xlink:href=%22%23b%22 transform=%22translate(2.99 6.52)%22 fill=%22%2388d528%22/%3E%3Cuse xlink:href=%22%23c%22 transform=%22translate(6.21 6.52)%22 fill=%22%2388d528%22/%3E%3Cuse xlink:href=%22%23d%22 transform=%22translate(9.43 6.52)%22 fill=%22%2388d528%22/%3E%3Cuse xlink:href=%22%23e%22 transform=%22translate(2.99 9.72)%22 fill=%22%2388d528%22/%3E%3Cuse xlink:href=%22%23f%22 transform=%22translate(6.21 9.72)%22 fill=%22%2388d528%22/%3E%3Cuse xlink:href=%22%23g%22 transform=%22translate(9.43 9.72)%22 fill=%22%2388d528%22/%3E%3Cdefs%3E%3Cpath id=%22a%22 d=%22M12.958 1.814h-1.146v-.777c0-.57-.468-1.037-1.041-1.037h-.042c-.573 0-1.041.466-1.041 1.037v.777H4.311v-.777C4.313.467 3.845 0 3.272 0h-.042c-.573 0-1.042.466-1.042 1.037v.777H1.042C.469 1.814 0 2.281 0 2.851v11.112C0 14.533.469 15 1.042 15h11.916c.573 0 1.042-.466 1.042-1.037V2.851c0-.57-.469-1.037-1.042-1.037zm-.328 11.854H1.37v-9.03h11.26v9.03z%22/%3E%3Cpath id=%22b%22 d=%22M.823 1.638a.823.823 0 0 0 .823-.82.823.823 0 0 0-1.646 0c0 .452.365.82.823.82z%22/%3E%3Cpath id=%22c%22 d=%22M.823 1.638a.823.823 0 0 0 .823-.82.823.823 0 0 0-1.646 0 .816.816 0 0 0 .823.82z%22/%3E%3Cpath id=%22d%22 d=%22M.823 1.638a.823.823 0 0 0 .823-.82.823.823 0 0 0-1.646 0c0 .452.37.82.823.82z%22/%3E%3Cpath id=%22e%22 d=%22M.823 1.638a.823.823 0 0 0 .823-.82.823.823 0 0 0-1.646 0c0 .452.365.82.823.82z%22/%3E%3Cpath id=%22f%22 d=%22M.823 1.638a.823.823 0 0 0 .823-.82.823.823 0 0 0-1.646 0 .816.816 0 0 0 .823.82z%22/%3E%3Cpath id=%22g%22 d=%22M.823 1.638a.823.823 0 0 0 .823-.82.823.823 0 0 0-1.646 0c0 .452.37.82.823.82z%22/%3E%3C/defs%3E%3C/svg%3E")
+        no-repeat;
     -webkit-background-size: 100% 100%;
     -moz-background-size: 100% 100%;
     background-size: 100% 100%;
-
 }
 
 .contact__title {
@@ -401,7 +400,7 @@
 }
 
 .contact-form .contact-form__label span {
-    color: rgba(1, 1, 1, .3);
+    color: rgba(1, 1, 1, 0.3);
 }
 
 .contact-form .contact-form__label.is-filled span {
@@ -413,7 +412,6 @@
 }
 
 .contact-form__label-text {
-
     margin-top: 20px;
     font-family: Roboto, Arial, sans-serif;
     color: #ffffff;
@@ -452,8 +450,6 @@
 
 /* Зоны празднования */
 
-
-
 .zones__list {
     margin-top: 70px;
     position: relative;
@@ -463,7 +459,7 @@
 }
 
 .zones__list::before {
-    content: '';
+    content: "";
     position: absolute;
     background: url("../images/reservation/zones/cloud.svg") center no-repeat;
     width: 275px;
@@ -473,7 +469,7 @@
 }
 
 .zones__list::after {
-    content: '';
+    content: "";
     position: absolute;
     background: url("../images/reservation/zones/ballons.svg") center no-repeat;
     width: 260px;
@@ -488,12 +484,11 @@
     color: #32bc4f;
 }
 
-
 .zones__item {
     width: calc(50% - 10px);
     position: relative;
     display: inline-block;
-    background: #C4C4C4;
+    background: #c4c4c4;
     border-radius: 10px;
     margin-bottom: 40px;
 }
@@ -524,7 +519,6 @@
     bottom: 40px;
     top: auto;
     margin: auto;
-
 }
 
 .zones__slider ul li {
@@ -537,7 +531,7 @@
 .zones__slider ul.slick-dots li {
     width: 54px;
     height: 6px;
-    background: #FFFFFF;
+    background: #ffffff;
     opacity: 0.5;
     border-radius: 10px;
     margin-right: 10px;
@@ -557,11 +551,40 @@
     bottom: 0;
     display: flex;
     list-style-type: none;
-
 }
 
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 30;
+    cursor: pointer;
+}
 
+.popup-layout {
+    position: absolute;
+    top: 0;
+    left: 300px;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 400px;
+    height: 80px;
+    padding: 30px 50px;
+    border: 9px solid #1a7ec3;
+    background-color: #fff;
+    border-radius: 50px;
+    cursor: inherit;
+}
 
+@media (max-width: 1199px) {
+    .popup-layout {
+        left: 0;
+    }
+}
 @media (max-width: 1024px) {
     .reservation {
         padding-top: 550px;

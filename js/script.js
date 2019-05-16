@@ -1,5 +1,5 @@
-$(function () {
-    $("[js-reservation]").each(function () {
+$(document).ready(function() {
+    /* $("[js-reservation]").each(function () {
         var form = $(this);
         form.on("submit", function (o) {
             o.preventDefault();
@@ -20,43 +20,53 @@ $(function () {
                 }
             })
         })
-    })
-});
+    })*/
 
-console.log('test');
-$(function () {
-    $(".js-reservation-slider").slick(
-        {
-            prevArrow: '<button type="button" class="slick-prev"><span class="slick-arrow-icon"></span></button>',
-            nextArrow: '<button type="button" class="slick-next"><span class="slick-arrow-icon"></span></button>',
-            rows: 0,
-            mobileFirst: true,
-            speed: 400,
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            centerMode: true,
-            swipeToSlide: true,
-            infinite: false,
-            adaptiveHeight: true,
-            variableWidth: true,
-            responsive: [
-                {
-                    breakpoint: 768,
-                    settings: "unslick"
-                }
-            ]
-        }
-    );
-    console.log($(".js-zones-slider"));
-    $(".js-zones-slider").slick(
-        {
-            arrows: false,
-            dots: true,
-            speed: 400,
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            swipeToSlide: false,
-            infinite: false,
-        }
-    );
+    console.log("test");
+
+    $(".js-reservation-slider").slick({
+        prevArrow:
+            '<button type="button" class="slick-prev"><span class="slick-arrow-icon"></span></button>',
+        nextArrow:
+            '<button type="button" class="slick-next"><span class="slick-arrow-icon"></span></button>',
+        rows: 0,
+        mobileFirst: true,
+        speed: 400,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        centerMode: true,
+        swipeToSlide: true,
+        infinite: false,
+        adaptiveHeight: true,
+        variableWidth: true,
+        responsive: [
+            {
+                breakpoint: 768,
+                settings: "unslick"
+            }
+        ]
+    });
+
+    $(".js-zones-slider").slick({
+        arrows: false,
+        dots: true,
+        speed: 400,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        swipeToSlide: false,
+        infinite: false
+    });
+
+    /*setTimeout(function() {
+        console.log($(".js-popup"));
+        $(".js-popup").fadeIn();
+
+        setTimeout(function() {
+            $(".js-popup").fadeOut();
+        }, 5000);
+    }, 5000);*/
+
+    $(".js-popup").on("click", function() {
+        $(this).fadeOut();
+    });
 });
