@@ -9,7 +9,7 @@ $(document).ready(function() {
             var baseDataSector = '.js-form-reservation-';
             var data = {};
 
-            $(form).serializeArray().each(function (item) {
+            $(form).serializeArray().forEach(function (item) {
                 data[item.name] = item.value
             });
 
@@ -101,134 +101,6 @@ $(document).ready(function() {
         $(this).fadeOut();
     });
 
-
-    window.dataTemplate = {
-        time: [
-            {
-                name: '11:00',
-                code: '11:00',
-            },
-            {
-                name: '14:30',
-                code: '14:30',
-            },
-            {
-                name: '18:00',
-                code: '18:00',
-            }
-        ],
-        countPeople: [
-            {
-                name: 'До 7 человек',
-                code: '7',
-                tariffs: [
-                    {
-                        name: 'Мини',
-                        code: 'mini',
-                        description: 'аренда зоны празднования на 3 часа, доступ во все зоны развлекательного центра на 3 часа, возможность пользоваться кухней (холодильник, микроволновка, чайник, раковина).',
-                        count: '6 детей и 1 взрослый.',
-                        price: '4000 руб.',
-                        image: 'images/reservation/tariffs/tariff-1.svg'
-                    },
-                    {
-                        name: 'Мини + квест/анимация',
-                        code: 'mini-quest',
-                        description: 'аренда зоны празднования на 3 часа, доступ во все зоны развлекательного центра на 3 часа, возможность пользоваться кухней (холодильник, микроволновка, чайник, раковина), анимация/квест (на выбор) в течение 40 минут.',
-                        count: '6 детей и 1 взрослый.',
-                        price: '6500 руб.',
-                        image: 'images/reservation/tariffs/tariff-2.svg'
-                    }
-                ]
-            },
-            {
-                name: 'До 15 человек',
-                code: '15',
-                tariffs: [
-                    {
-                        name: 'Базовый',
-                        code: 'base',
-                        description: 'аренда зоны празднования на 3 часа, доступ во все зоны развлекательного центра на 3 часа, возможность пользоваться кухней (холодильник, микроволновка, чайник, раковина).',
-                        count: '12 гостей, 1 именинник и 2 взрослых.',
-                        price: '6000 руб.',
-                        image: 'images/reservation/tariffs/tariff-1.svg'
-                    },
-                    {
-                        name: 'Базовый +',
-                        code: 'base-plus',
-                        description: 'аренда зоны празднования на 3 часа, доступ во все зоны развлекательного центра на 3 часа, возможность пользоваться кухней (холодильник, микроволновка, чайник, раковина), анимация/квест (на выбор) в течение 40 минут.',
-                        count: '12 гостей, 1 именинник и 2 взрослых.',
-                        price: '8000 руб.',
-                        image: 'images/reservation/tariffs/tariff-2.svg'
-                    },
-                    {
-                        name: 'Все включено',
-                        code: 'all-inclusive',
-                        description: 'аренда зоны празднования на 3 часа, доступ во все зоны развлекательного центра на 3 часа, возможность пользоваться кухней (холодильник, микроволновка, чайник, раковина), анимация/квест (на выбор) в течение 40 минут, оформление зоны шарами и баннером в желаемой тематике, час работы фотографа.',
-                        count: '12 гостей, 1 именинник и 2 взрослых.',
-                        price: '12000 руб.',
-                        image: 'images/reservation/tariffs/tariff-3.svg'
-                    }
-                ]
-            },
-            {
-                name: 'До 25 человек',
-                code: '25',
-                tariffs: [
-                    {
-                        name: 'Праздник',
-                        code: 'celebration',
-                        description: 'аренда зоны празднования на 3 часа, доступ во все зоны развлекательного центра на 3 часа, возможность пользоваться кухней (холодильник, микроволновка, чайник, раковина), анимация/квест (на выбор) в течение 40 минут, оформление зоны шарами и баннером в желаемой тематике, час работы фотографа.',
-                        count: 'до 25 человек.',
-                        price: '15000 руб.',
-                        image: 'images/reservation/tariffs/tariff-3.svg'
-                    }
-                ]
-            }
-        ],
-        zones: [
-            {
-                name: 'Лондон',
-                code: 'london',
-                slider: [
-                    'images/reservation/zones/zones-slider1.png',
-                    'images/reservation/zones/zones-slider2.png',
-                    'images/reservation/zones/zones-slider1.png',
-                    'images/reservation/zones/zones-slider2.png',
-                ]
-            },
-            {
-                name: 'Париж',
-                code: 'paris',
-                slider: [
-                    'images/reservation/zones/zones-slider2.png',
-                    'images/reservation/zones/zones-slider1.png',
-                    'images/reservation/zones/zones-slider2.png',
-                    'images/reservation/zones/zones-slider1.png',
-                ]
-            },
-            {
-                name: 'Лондон2',
-                code: 'london2',
-                slider: [
-                    'images/reservation/zones/zones-slider1.png',
-                    'images/reservation/zones/zones-slider2.png',
-                    'images/reservation/zones/zones-slider1.png',
-                    'images/reservation/zones/zones-slider2.png',
-                ]
-            },
-            {
-                name: 'Париж2',
-                code: 'paris2',
-                slider: [
-                    'images/reservation/zones/zones-slider2.png',
-                    'images/reservation/zones/zones-slider1.png',
-                    'images/reservation/zones/zones-slider2.png',
-                    'images/reservation/zones/zones-slider1.png',
-                ]
-            }
-        ]
-    };
-
     window.tariffSlickOptions = {
         prevArrow:
             '<button type="button" class="slick-prev"><span class="slick-arrow-icon"></span></button>',
@@ -272,15 +144,17 @@ $(document).ready(function() {
 });
 
 
-function renderSelect(selector, name, data) {
+function renderSelect(selector, name, value) {
     var select = $('<select>');
     select.attr('name', name);
-    data.each(function (item) {
-        var option = $('<option>');
-        option.attr('value', item.code);
-        option.text(item.name);
-        select.append(option);
-    });
+    if (value.length) {
+        value.forEach(function (item) {
+            var option = $('<option>');
+            option.attr('value', item.code);
+            option.text(item.name);
+            select.append(option);
+        });
+    }
 
     $(selector).append(select);
     return select;
@@ -304,10 +178,10 @@ function renderTariffList(selector,selectedOption, name, data) {
 
     $(selector).html('');
     if (data.length) {
-        data.each(function ($val) {
+        data.forEach(function ($val) {
             if ($val.code === selectedOption.val())  {
                 if ($val.tariffs.length) {
-                    $val.tariffs.each(function ($tariff, $key) {
+                    $val.tariffs.forEach(function ($tariff, $key) {
                         $(selector).append(renderTariffItem(name, $tariff, $key));
                     });
                 }
@@ -366,7 +240,7 @@ function renderZone(selector, name, data) {
     $(selector).html('');
 
     if (data.length) {
-        data.each(function ($zone, $key) {
+        data.forEach(function ($zone, $key) {
             $(selector).append(renderZoneItem(name, $zone, $key));
         });
     }
@@ -384,7 +258,7 @@ function renderZoneItem($name, $val, $key = 0) {
     var slider = $('<div>').addClass(baseClass + 'slider');
 
     if ($val.slider.length) {
-        $val.slider.each(function (path) {
+        $val.slider.forEach(function (path) {
             var slide = $('<div>').addClass(baseClass + 'slider-item');
             slide.html($('<img>', {src: path, alt: ''}));
             slider.append(slide);

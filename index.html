@@ -1,17 +1,6 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="css/vendor.css" />
-        <link rel="stylesheet" href="css/common.css" />
-        <link rel="stylesheet" href="css/style.css" />
-        <script src="js/vendor.js"></script>
-        <script src="js/common.js"></script>
-        <script src="js/script.js"></script>
-
-        <script>
-            app.start();
-        </script>
-
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width" />
         <meta name="format-detection" content="telephone=no" />
@@ -44,6 +33,152 @@
             src="https://api-maps.yandex.ru/2.1/?lang=ru_RU"
             type="text/javascript"
         ></script>
+
+
+        <link rel="stylesheet" href="css/vendor.css" />
+        <link rel="stylesheet" href="css/common.css" />
+        <link rel="stylesheet" href="css/style.css" />
+
+        <script>
+            window.dataTemplate = {
+                time: [
+                    {
+                        name: '11:00',
+                        code: '11:00',
+                    },
+                    {
+                        name: '14:30',
+                        code: '14:30',
+                    },
+                    {
+                        name: '18:00',
+                        code: '18:00',
+                    }
+                ],
+                countPeople: [
+                    {
+                        name: 'До 7 человек',
+                        code: '7',
+                        tariffs: [
+                            {
+                                name: 'Мини',
+                                code: 'mini',
+                                description: 'аренда зоны празднования на 3 часа, доступ во все зоны развлекательного центра на 3 часа, возможность пользоваться кухней (холодильник, микроволновка, чайник, раковина).',
+                                count: '6 детей и 1 взрослый.',
+                                price: '4000 руб.',
+                                image: 'images/reservation/tariffs/tariff-1.svg'
+                            },
+                            {
+                                name: 'Мини + квест/анимация',
+                                code: 'mini-quest',
+                                description: 'аренда зоны празднования на 3 часа, доступ во все зоны развлекательного центра на 3 часа, возможность пользоваться кухней (холодильник, микроволновка, чайник, раковина), анимация/квест (на выбор) в течение 40 минут.',
+                                count: '6 детей и 1 взрослый.',
+                                price: '6500 руб.',
+                                image: 'images/reservation/tariffs/tariff-2.svg'
+                            }
+                        ]
+                    },
+                    {
+                        name: 'До 15 человек',
+                        code: '15',
+                        tariffs: [
+                            {
+                                name: 'Базовый',
+                                code: 'base',
+                                description: 'аренда зоны празднования на 3 часа, доступ во все зоны развлекательного центра на 3 часа, возможность пользоваться кухней (холодильник, микроволновка, чайник, раковина).',
+                                count: '12 гостей, 1 именинник и 2 взрослых.',
+                                price: '6000 руб.',
+                                image: 'images/reservation/tariffs/tariff-1.svg'
+                            },
+                            {
+                                name: 'Базовый +',
+                                code: 'base-plus',
+                                description: 'аренда зоны празднования на 3 часа, доступ во все зоны развлекательного центра на 3 часа, возможность пользоваться кухней (холодильник, микроволновка, чайник, раковина), анимация/квест (на выбор) в течение 40 минут.',
+                                count: '12 гостей, 1 именинник и 2 взрослых.',
+                                price: '8000 руб.',
+                                image: 'images/reservation/tariffs/tariff-2.svg'
+                            },
+                            {
+                                name: 'Все включено',
+                                code: 'all-inclusive',
+                                description: 'аренда зоны празднования на 3 часа, доступ во все зоны развлекательного центра на 3 часа, возможность пользоваться кухней (холодильник, микроволновка, чайник, раковина), анимация/квест (на выбор) в течение 40 минут, оформление зоны шарами и баннером в желаемой тематике, час работы фотографа.',
+                                count: '12 гостей, 1 именинник и 2 взрослых.',
+                                price: '12000 руб.',
+                                image: 'images/reservation/tariffs/tariff-3.svg'
+                            }
+                        ]
+                    },
+                    {
+                        name: 'До 25 человек',
+                        code: '25',
+                        tariffs: [
+                            {
+                                name: 'Праздник',
+                                code: 'celebration',
+                                description: 'аренда зоны празднования на 3 часа, доступ во все зоны развлекательного центра на 3 часа, возможность пользоваться кухней (холодильник, микроволновка, чайник, раковина), анимация/квест (на выбор) в течение 40 минут, оформление зоны шарами и баннером в желаемой тематике, час работы фотографа.',
+                                count: 'до 25 человек.',
+                                price: '15000 руб.',
+                                image: 'images/reservation/tariffs/tariff-3.svg'
+                            }
+                        ]
+                    }
+                ],
+                zones: [
+                    {
+                        name: 'Лондон',
+                        code: 'london',
+                        slider: [
+                            'images/reservation/zones/zones-slider1.png',
+                            'images/reservation/zones/zones-slider2.png',
+                            'images/reservation/zones/zones-slider1.png',
+                            'images/reservation/zones/zones-slider2.png',
+                        ]
+                    },
+                    {
+                        name: 'Париж',
+                        code: 'paris',
+                        slider: [
+                            'images/reservation/zones/zones-slider2.png',
+                            'images/reservation/zones/zones-slider1.png',
+                            'images/reservation/zones/zones-slider2.png',
+                            'images/reservation/zones/zones-slider1.png',
+                        ]
+                    },
+                    {
+                        name: 'Лондон2',
+                        code: 'london2',
+                        slider: [
+                            'images/reservation/zones/zones-slider1.png',
+                            'images/reservation/zones/zones-slider2.png',
+                            'images/reservation/zones/zones-slider1.png',
+                            'images/reservation/zones/zones-slider2.png',
+                        ]
+                    },
+                    {
+                        name: 'Париж2',
+                        code: 'paris2',
+                        slider: [
+                            'images/reservation/zones/zones-slider2.png',
+                            'images/reservation/zones/zones-slider1.png',
+                            'images/reservation/zones/zones-slider2.png',
+                            'images/reservation/zones/zones-slider1.png',
+                        ]
+                    }
+                ]
+            };
+
+            console.log(window.dataTemplate);
+        </script>
+        <script src="js/vendor.js"></script>
+        <script src="js/common.js"></script>
+        <script src="js/script.js"></script>
+
+        <script>
+            app.start();
+        </script>
+
+
+
     </head>
     <body js-scroll-container class="body">
         <div js-path-start class="services__pathPoint-1"></div>
@@ -398,194 +533,6 @@
                                     Зоны празднования
                                 </div>
                                 <div class="zones__list js-render-zones js-form-reservation-zones">
-                                    <div class="zones__item">
-                                        <div class="zones__name title-h2">
-                                            Лондон
-                                        </div>
-                                        <div
-                                            class="zones__slider js-render-zones"
-                                        >
-                                            <div class="zones__slider-item">
-                                                <img
-                                                    src="images/reservation/zones/zones-slider1.png"
-                                                    alt=""
-                                                />
-                                            </div>
-                                            <div class="zones__slider-item">
-                                                <img
-                                                    src="images/reservation/zones/zones-slider2.png"
-                                                    alt=""
-                                                />
-                                            </div>
-                                            <div class="zones__slider-item">
-                                                <img
-                                                    src="images/reservation/zones/zones-slider1.png"
-                                                    alt=""
-                                                />
-                                            </div>
-                                            <div class="zones__slider-item">
-                                                <img
-                                                    src="images/reservation/zones/zones-slider2.png"
-                                                    alt=""
-                                                />
-                                            </div>
-                                        </div>
-                                        <label
-                                            class="reservation-tariff__button zones__button"
-                                        >
-                                            <input
-                                                type="radio"
-                                                name="zones"
-                                                value="london"
-                                            />
-                                            <span class="button button_medium">
-                                                <span class="button__content"
-                                                    >Выбрать</span
-                                                >
-                                            </span>
-                                        </label>
-                                    </div>
-                                    <div class="zones__item">
-                                        <div class="zones__name title-h2">
-                                            Париж
-                                        </div>
-                                        <div
-                                            class="zones__slider js-zones-slider"
-                                        >
-                                            <div class="zones__slider-item">
-                                                <img
-                                                    src="images/reservation/zones/zones-slider2.png"
-                                                    alt=""
-                                                />
-                                            </div>
-                                            <div class="zones__slider-item">
-                                                <img
-                                                    src="images/reservation/zones/zones-slider1.png"
-                                                    alt=""
-                                                />
-                                            </div>
-                                            <div class="zones__slider-item">
-                                                <img
-                                                    src="images/reservation/zones/zones-slider2.png"
-                                                    alt=""
-                                                />
-                                            </div>
-                                            <div class="zones__slider-item">
-                                                <img
-                                                    src="images/reservation/zones/zones-slider1.png"
-                                                    alt=""
-                                                />
-                                            </div>
-                                        </div>
-                                        <label
-                                            class="reservation-tariff__button zones__button"
-                                        >
-                                            <input
-                                                type="radio"
-                                                name="zones"
-                                                value="paris"
-                                            />
-                                            <span class="button button_medium">
-                                                <span class="button__content"
-                                                    >Выбрать</span
-                                                >
-                                            </span>
-                                        </label>
-                                    </div>
-                                    <div class="zones__item">
-                                        <div class="zones__name title-h2">
-                                            Лондон
-                                        </div>
-                                        <div
-                                            class="zones__slider js-zones-slider"
-                                        >
-                                            <div class="zones__slider-item">
-                                                <img
-                                                    src="images/reservation/zones/zones-slider1.png"
-                                                    alt=""
-                                                />
-                                            </div>
-                                            <div class="zones__slider-item">
-                                                <img
-                                                    src="images/reservation/zones/zones-slider2.png"
-                                                    alt=""
-                                                />
-                                            </div>
-                                            <div class="zones__slider-item">
-                                                <img
-                                                    src="images/reservation/zones/zones-slider1.png"
-                                                    alt=""
-                                                />
-                                            </div>
-                                            <div class="zones__slider-item">
-                                                <img
-                                                    src="images/reservation/zones/zones-slider2.png"
-                                                    alt=""
-                                                />
-                                            </div>
-                                        </div>
-                                        <label
-                                            class="reservation-tariff__button zones__button"
-                                        >
-                                            <input
-                                                type="radio"
-                                                name="zones"
-                                                value="london"
-                                            />
-                                            <span class="button button_medium">
-                                                <span class="button__content"
-                                                    >Выбрать</span
-                                                >
-                                            </span>
-                                        </label>
-                                    </div>
-                                    <div class="zones__item">
-                                        <div class="zones__name title-h2">
-                                            Париж
-                                        </div>
-                                        <div
-                                            class="zones__slider js-zones-slider"
-                                        >
-                                            <div class="zones__slider-item">
-                                                <img
-                                                    src="images/reservation/zones/zones-slider2.png"
-                                                    alt=""
-                                                />
-                                            </div>
-                                            <div class="zones__slider-item">
-                                                <img
-                                                    src="images/reservation/zones/zones-slider1.png"
-                                                    alt=""
-                                                />
-                                            </div>
-                                            <div class="zones__slider-item">
-                                                <img
-                                                    src="images/reservation/zones/zones-slider2.png"
-                                                    alt=""
-                                                />
-                                            </div>
-                                            <div class="zones__slider-item">
-                                                <img
-                                                    src="images/reservation/zones/zones-slider1.png"
-                                                    alt=""
-                                                />
-                                            </div>
-                                        </div>
-                                        <label
-                                            class="reservation-tariff__button zones__button"
-                                        >
-                                            <input
-                                                type="radio"
-                                                name="zones"
-                                                value="paris"
-                                            />
-                                            <span class="button button_medium">
-                                                <span class="button__content"
-                                                    >Выбрать</span
-                                                >
-                                            </span>
-                                        </label>
-                                    </div>
                                 </div>
                             </div>
                         </section>
