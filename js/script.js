@@ -88,17 +88,6 @@ $(document).ready(function() {
         })
     });
 
-
-    $(".js-zones-slider").slick({
-        arrows: false,
-        dots: true,
-        speed: 400,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        swipeToSlide: false,
-        infinite: false
-    });
-
     /*setTimeout(function() {
         console.log($(".js-popup"));
         $(".js-popup").fadeIn();
@@ -263,12 +252,23 @@ $(document).ready(function() {
         ]
     };
 
+    window.zonesSlickOptions = {
+        arrows: false,
+        dots: true,
+        speed: 400,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        swipeToSlide: false,
+        infinite: false
+    };
+
     renderSelect('.js-render-time-select', 'time', window.dataTemplate.time);
 
     renderSelect('.js-render-count-select', 'countPeople', window.dataTemplate.countPeople);
 
     renderTariff('.js-render-count-select', '.js-render-tariffs','tariffs', window.dataTemplate.countPeople);
 
+    renderZone( '.js-render-zones','zones', window.dataTemplate.zones);
 });
 
 
@@ -287,7 +287,6 @@ function renderSelect(selector, name, data) {
 }
 
 function renderTariff(parentSelector, selector, name, data) {
-
     var selectedOption = $(parentSelector + ' select :selected');
     renderTariffList(selector, selectedOption, name, data);
     $(parentSelector + ' select').on('change', function () {
@@ -296,21 +295,25 @@ function renderTariff(parentSelector, selector, name, data) {
     });
 
     return $(selector);
-
 }
 
 function renderTariffList(selector,selectedOption, name, data) {
     if ($(selector).hasClass('slick-initialized')) {
         $(selector).slick('unslick');
     }
+
     $(selector).html('');
-    data.each(function ($val) {
-        if ($val.code === selectedOption.val())  {
-            $val.tariffs.each(function ($tariff, $key) {
-                $(selector).append(renderTariffItem(name, $tariff, $key));
-            });
-        }
-    });
+    if (data.length) {
+        data.each(function ($val) {
+            if ($val.code === selectedOption.val())  {
+                if ($val.tariffs.length) {
+                    $val.tariffs.each(function ($tariff, $key) {
+                        $(selector).append(renderTariffItem(name, $tariff, $key));
+                    });
+                }
+            }
+        });
+    }
 
     $(selector).slick(window.tariffSlickOptions);
     return $(selector);
@@ -331,13 +334,11 @@ function renderTariffItem($name, $val, $key = 0) {
     price.text($val.price);
     inner.append(price);
 
-
     var desc = $('<div>').addClass(baseClass + 'desc').append(renderTariffText(baseClass, 'Что включено', $val.description));
     inner.append(desc);
 
     var bottom = $('<div>').addClass(baseClass + 'bottom').append(renderTariffText(baseClass, 'Количество гостей', $val.count));
     inner.append(bottom);
-
 
     var checkbox = $('<input>', {type: 'radio', name: $name, value: $val.code});
 
@@ -359,4 +360,52 @@ function renderTariffItem($name, $val, $key = 0) {
 
 function renderTariffText(baseClass,title, val) {
     return $('<div>').addClass(baseClass + 'text').append('<span>'+ title +':<span>').append(val);
+}
+
+function renderZone(selector, name, data) {
+    $(selector).html('');
+
+    if (data.length) {
+        data.each(function ($zone, $key) {
+            $(selector).append(renderZoneItem(name, $zone, $key));
+        });
+    }
+    return $(selector);
+}
+
+function renderZoneItem($name, $val, $key = 0) {
+    var baseClass = 'zones__';
+    var item = $('<div>').addClass(baseClass + 'item');
+
+    var title = $('<div>').addClass(baseClass + 'name title-h2');
+    title.text($val.name);
+    item.append(title);
+
+    var slider = $('<div>').addClass(baseClass + 'slider');
+
+    if ($val.slider.length) {
+        $val.slider.each(function (path) {
+            var slide = $('<div>').addClass(baseClass + 'slider-item');
+            slide.html($('<img>', {src: path, alt: ''}));
+            slider.append(slide);
+        });
+    }
+    item.append(slider);
+    slider.slick(window.zonesSlickOptions);
+
+    var checkbox = $('<input>', {type: 'radio', name: $name, value: $val.code});
+
+    if($key === 0) {
+        checkbox.prop("checked", true);
+    } else {
+        checkbox.prop("checked", false);
+    }
+
+    var button = $('<label>').addClass(baseClass + 'button reservation-tariff__button');
+    button.append(checkbox);
+
+    button.append('<span class="button button_medium"><span class="button__content">Выбрать</span></span>');
+    item.append(button);
+
+    return item;
 }

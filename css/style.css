@@ -536,6 +536,7 @@
     border-radius: 10px;
     margin-right: 10px;
     margin-bottom: 10px;
+    cursor: pointer;
 }
 .zones__slider ul.slick-dots li button {
     display: none;
@@ -549,7 +550,7 @@
     position: absolute;
     left: 20px;
     bottom: 0;
-    display: flex;
+    display: flex !important;
     list-style-type: none;
 }
 
