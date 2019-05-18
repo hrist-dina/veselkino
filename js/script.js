@@ -1,30 +1,4 @@
 $(document).ready(function() {
-
-    function setErrorValidationWithScroll(element, message) {
-        $([document.documentElement, document.body]).animate(
-            {
-                scrollTop: element.offset().top - 200
-            },
-            1000
-        );
-        element.addClass('is-error');
-        element.parent().find('span').hide();
-        element.parent().prepend($('<span>').addClass('field-error').text(message));
-    }
-
-    function setErrorValidation(element) {
-        element = $(element);
-        element.addClass('is-error');
-        element.parent().find('.field__error').addClass('show');
-    }
-
-    function removeErrorValidation(element) {
-        element = $(element);
-        element.removeClass('is-error');
-        element.parent().find('span').show();
-        element.parent().find('.field-error').remove();
-    }
-
     $(".js-form-reservation").each(function() {
         var form = $(this);
         form.on("submit", function(o) {
@@ -133,6 +107,15 @@ $(document).ready(function() {
                 // Модалка об успехе END
             }
         });
+    });
+
+    $('.js-mask-phone').inputmask('+7 (999) 999-99-99', {
+        showMaskOnHover: false,
+        showMaskOnFocus: false,
+    });
+    $('.js-mask-date').inputmask('99/99/9999', {
+        showMaskOnHover: false,
+        showMaskOnFocus: false,
     });
 
     window.tariffSlickOptions = {
@@ -359,4 +342,29 @@ function renderZoneItem($name, $val, $key = 0) {
     item.append(button);
 
     return item;
+}
+
+function setErrorValidationWithScroll(element, message) {
+    $([document.documentElement, document.body]).animate(
+        {
+            scrollTop: element.offset().top - 200
+        },
+        1000
+    );
+    element.addClass('is-error');
+    element.parent().find('span').hide();
+    element.parent().prepend($('<span>').addClass('field-error').text(message));
+}
+
+function setErrorValidation(element) {
+    element = $(element);
+    element.addClass('is-error');
+    element.parent().find('.field__error').addClass('show');
+}
+
+function removeErrorValidation(element) {
+    element = $(element);
+    element.removeClass('is-error');
+    element.parent().find('span').show();
+    element.parent().find('.field-error').remove();
 }
