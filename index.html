@@ -544,7 +544,7 @@
                                     </div>
                                     <form
                                         class="contact-form js-form-reservation"
-                                        action=""
+                                        action="test"
                                         method="POST"
                                     >
                                         <label
@@ -630,7 +630,7 @@
                                                 ответ</span
                                             >
                                             <input
-                                                type="text"
+                                                type="email"
                                                 name="email"
                                                 class="field__input"
                                             />
@@ -681,12 +681,14 @@
                             </div>
                         </section>
                         <section class="popup js-popup">
-                            <div class="popup-layout">
-                                <h4 class="popup-h4">
-                                    <div class="title-h3">Спасибо!</div>
+                            <div class="popup-overlay js-popup-close"></div>
+                            <div class="popup-layout layer_header">
+                                <h3 class="h3 title-h3">Спасибо!</h3>
+                                <div class="popup-text title-h4">
                                      Ваша заявка принята! С Вами
                                     свяжется наш менеджер для уточнения деталей.
-                                </h4>
+                                </div>
+                                <a class="js-popup-close layer-close" role="button" href="javascript:void(0)"></a>
                             </div>
                         </section>
                     </div>

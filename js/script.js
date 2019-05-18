@@ -1,13 +1,39 @@
 $(document).ready(function() {
+
+    function setErrorValidationWithScroll(element, message) {
+        $([document.documentElement, document.body]).animate(
+            {
+                scrollTop: element.offset().top - 200
+            },
+            1000
+        );
+        element.addClass('is-error');
+        element.parent().find('span').hide();
+        element.parent().prepend($('<span>').addClass('field-error').text(message));
+    }
+
+    function setErrorValidation(element) {
+        element = $(element);
+        element.addClass('is-error');
+        element.parent().find('.field__error').addClass('show');
+    }
+
+    function removeErrorValidation(element) {
+        element = $(element);
+        element.removeClass('is-error');
+        element.parent().find('span').show();
+        element.parent().find('.field-error').remove();
+    }
+
     $(".js-form-reservation").each(function() {
         var form = $(this);
         form.on("submit", function(o) {
             o.preventDefault();
             o.stopPropagation();
-            form.find(".field.is-error").removeClass("is-error");
 
             var baseDataSector = ".js-form-reservation-";
             var data = {};
+            var isError = 0;
 
             $(form)
                 .serializeArray()
@@ -18,16 +44,10 @@ $(document).ready(function() {
             var date = $(baseDataSector + "date input");
             if (date.length) {
                 if (date.val() === "") {
-                    $([document.documentElement, document.body]).animate(
-                        {
-                            scrollTop: date.offset().top - 200
-                        },
-                        1000
-                    );
-                    date.addClass("is-error");
-
-                    //alert('Укажите дату!')
+                    setErrorValidationWithScroll(date, 'Укажите дату!');
+                    isError = 1;
                 } else {
+                    removeErrorValidation(date);
                     data[date.attr("name")] = date.val();
                 }
             }
@@ -35,8 +55,10 @@ $(document).ready(function() {
             var time = $(baseDataSector + "time select");
             if (time.length) {
                 if (time.val() === "") {
-                    alert("Укажите время!");
+                    setErrorValidationWithScroll(time, 'Укажите время!');
+                    isError = 1;
                 } else {
+                    removeErrorValidation(time);
                     data[time.attr("name")] = time.val();
                 }
             }
@@ -44,8 +66,10 @@ $(document).ready(function() {
             var count = $(baseDataSector + "count select");
             if (count.length) {
                 if (count.val() === "") {
-                    alert("Укажите количество человек!");
+                    setErrorValidationWithScroll(count, 'Укажите количество человек!');
+                    isError = 1;
                 } else {
+                    removeErrorValidation(count);
                     data[time.attr("name")] = time.val();
                 }
             }
@@ -54,6 +78,7 @@ $(document).ready(function() {
             if (tariffs.length) {
                 if (tariffs.val() === "") {
                     alert("Укажите тариф!");
+                    isError = 1;
                 } else {
                     data[tariffs.attr("name")] = tariffs.val();
                 }
@@ -63,43 +88,50 @@ $(document).ready(function() {
             if (zones.length) {
                 if (zones.val() === "") {
                     alert("Укажите зону!");
+                    isError = 1;
                 } else {
                     data[zones.attr("name")] = zones.val();
                 }
             }
 
-            console.log(data);
-
-            $(".js-popup").fadeIn();
-
-            // Модалка об успехе
-            // Переместить в success, после того, как будет путь для сохранения формы
-            setTimeout(function() {
-                $(".js-popup").fadeOut();
-            }, 10000);
-
-            $(".js-popup").on("click", function() {
-                $(this).fadeOut();
-            });
-            // Модалка об успехе END
-
-            $.ajax({
-                url: form.attr("action"),
-                dataType: "json",
-                data: data,
-                type: "post",
-                success: function(data) {
-                    if (data.error)
-                        for (var i in data.error) {
-                            var s = form.find('[name="' + i + '"]'),
-                                n = s.closest(".field").addClass("is-error");
-                            n.find(".field__error").html(o.error[i].join("; "));
-                        }
-                    else if (data.success) {
-                        console.log(data);
-                    }
+            form.find('.field input').each(function (key, item) {
+                if ($(item).val() === '') {
+                    setErrorValidation(item);
+                    isError = 1;
+                } else {
+                    removeErrorValidation(item);
                 }
             });
+            console.log(data);
+
+            if (!isError) {
+                $.ajax({
+                    url: form.attr("action"),
+                    dataType: "json",
+                    data: data,
+                    type: "post",
+                    success: function(data) {
+                        if (data.error) {
+                            console.log(data.error);
+                        }
+                        else if (data.success) {
+                            console.log(data.success);
+                        }
+                    }
+                });
+
+                // Модалка об успехе
+                // Переместить в success, после того, как будет путь для сохранения формы
+                $(".js-popup").fadeIn();
+                setTimeout(function() {
+                    $(".js-popup").fadeOut();
+                }, 10000);
+
+                $(".js-popup-close").on("click", function() {
+                    $(".js-popup").fadeOut();
+                });
+                // Модалка об успехе END
+            }
         });
     });
 
@@ -202,6 +234,18 @@ function renderTariffList(selector, selectedOption, name, data) {
     }
 
     $(selector).slick(window.tariffSlickOptions);
+
+    $(window).on('resize orientationchange', function() {
+        var responsive = window.tariffSlickOptions.responsive;
+        if (responsive.length) {
+            responsive.forEach(function (item) {
+                if ($(window).width() <= item.breakpoint) {
+                    $(selector).slick('resize');
+                }
+            })
+        }
+
+    });
     return $(selector);
 }
 
