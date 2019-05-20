@@ -452,13 +452,13 @@ input.is-error {
     text-align: center;
 }
 
-.contact-form__hulf {
+.contact-form__half {
     display: flex;
     justify-content: space-between;
     margin-bottom: 24px;
 }
 
-.contact-form__hulf > .contact-form__label {
+.contact-form__half > .contact-form__label {
     width: calc(50% - 5px);
     margin-bottom: 0;
 }
@@ -776,6 +776,19 @@ input.is-error {
 
     .reservation-tariff__desc {
         margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .contact-form__half {
+        display: block;
+        margin-bottom: 0;
+    }
+    .contact-form__half > .contact-form__label {
+        width: 100%;
+        margin-bottom: 24px;
+    }
+
+    .contact-form .contact-form__label {
         margin-bottom: 10px;
     }
 
