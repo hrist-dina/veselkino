@@ -63,8 +63,8 @@
 }
 
 .intro-reservation__balloon-mini-1,
-.intro-reservation__balloon-mini-2 {
-    content: "";
+.intro-reservation__balloon-mini-2,
+.intro-reservation__carousel {
     position: absolute;
 }
 
@@ -82,6 +82,16 @@
     height: 61px;
     left: 5.29%;
     top: 23.23%;
+}
+
+.intro-reservation__carousel {
+    background: url("../images/reservation/intro/carousel.svg") no-repeat center center;
+    width: 1389px;
+    height: 281px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: 960px;
 }
 
 .intro-reservation__content {
@@ -359,7 +369,7 @@
 }
 
 .contact-form__wrap {
-    padding-top: 100px;
+    padding-top: 20px;
 }
 
 .contact-form__date {
@@ -575,6 +585,11 @@ input.is-error {
     list-style-type: none;
 }
 
+.zones__slider-item {
+    text-decoration: none;
+    border: none;
+}
+
 .popup {
     display: none;
     position: fixed;
@@ -629,8 +644,12 @@ input.is-error {
 }
 @media (max-width: 1024px) {
     .reservation {
-        padding-top: 500px;
+        padding-top: 340px;
         padding-bottom: 60px;
+    }
+
+    .contact-form__wrap {
+        padding-top: 120px;
     }
 
     .reservation-tariff__list {
@@ -669,6 +688,10 @@ input.is-error {
 }
 
 @media (max-width: 768px) {
+
+    .reservation {
+        padding-top: 415px;
+    }
     .reservation__select {
         margin-top: 10px;
         max-width: 100%;
@@ -710,10 +733,6 @@ input.is-error {
 }
 
 @media (max-width: 425px) {
-    .reservation {
-        padding-top: 450px;
-        padding-bottom: 30px;
-    }
 
     .reservation__choice label:nth-child(2),
     .reservation__choice label:last-child {
@@ -740,11 +759,37 @@ input.is-error {
     .zones__item {
         width: 100%;
     }
+
+    .reservation-tariff__item {
+        min-height: auto;
+        background-position-y: -80px;
+    }
+
+    .reservation-tariff__top {
+        min-height: 170px;
+    }
+
+
+    .reservation-tariff__inner {
+        background-image: none !important;
+    }
+
+    .reservation-tariff__desc {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+}
+
+@media (max-width: 375px) {
+    .reservation {
+        padding-top: 330px;
+    }
 }
 
 @media (max-width: 320px) {
     .reservation {
-        padding-top: 350px;
+        padding-top: 265px;
     }
 
     .reservation-tariff__item {
@@ -753,5 +798,9 @@ input.is-error {
 
     .reservation__choice label {
         margin-right: 0;
+    }
+
+    .contact-form__wrap {
+        padding-top: 70px;
     }
 }

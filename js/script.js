@@ -239,13 +239,17 @@ function renderTariffItem($name, $val, $key = 0) {
     var inner = $("<div>").addClass(baseClass + "inner");
     inner.css("background-image", "url(" + $val.image + ")");
 
+    var top = $("<div>").addClass(baseClass + "top");
+
     var title = $("<div>").addClass(baseClass + "title");
     title.text($val.name);
-    inner.append(title);
+    top.append(title);
 
     var price = $("<div>").addClass(baseClass + "price title-h4");
     price.text($val.price);
-    inner.append(price);
+    top.append(price);
+
+    inner.append(top);
 
     var desc = $("<div>")
         .addClass(baseClass + "desc")
@@ -275,7 +279,7 @@ function renderTariffItem($name, $val, $key = 0) {
     button.append(
         '<span class="button button_medium"><span class="button__content">Выбрать</span></span>'
     );
-    inner.append(button);
+    bottom.append(button);
 
     item.html(inner);
     return item;
@@ -311,7 +315,12 @@ function renderZoneItem($name, $val, $key = 0) {
 
     if ($val.slider.length) {
         $val.slider.forEach(function(path) {
-            var slide = $("<div>").addClass(baseClass + "slider-item");
+            var slide = $("<a>").addClass(baseClass + "slider-item").attr({
+                'href': path,
+                'js-fancybox': '',
+                'data-fancybox': 'images-' + ($key + 1),
+                'data-type': 'image'
+            });
             slide.html($("<img>", { src: path, alt: "" }));
             slider.append(slide);
         });
