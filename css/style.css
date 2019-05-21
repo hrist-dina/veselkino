@@ -808,6 +808,11 @@ input.is-error {
         display: block;
         margin: auto;
         margin-top: 10px;
+        text-align: center;
+    }
+
+    .reservation__choice label span {
+        margin-left: 0;
     }
 
 }
