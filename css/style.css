@@ -349,8 +349,13 @@
         center top;
     width: 100%;
     min-height: 756px;
-    padding-top: 100px;
+    padding-top: 80px;
     background-color: #fff;
+}
+
+.section-form .reservation-container{
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .contact-form {
@@ -470,7 +475,7 @@ input.is-error {
 }
 
 .contact-form__thanks {
-    margin-top: 75px;
+    margin-top: 50px;
     text-align: center;
     color: #32bc4f;
 }
@@ -730,14 +735,14 @@ input.is-error {
     .contact-form::before {
         display: none;
     }
+
+    .contact-form__wrap {
+        padding-top: 100px;
+    }
 }
 
 @media (max-width: 425px) {
 
-    .reservation__choice label:nth-child(2),
-    .reservation__choice label:last-child {
-        margin-right: 0;
-    }
 
     .reservation-tariff__item {
         max-width: 330px;
@@ -792,11 +797,30 @@ input.is-error {
         margin-bottom: 10px;
     }
 
+    .contact-form__wrap {
+        padding-top: 70px;
+    }
+
+    .reservation__choice label {
+        display: block;
+        margin: auto;
+        margin-top: 10px;
+    }
+
 }
 
+
 @media (max-width: 375px) {
+
     .reservation {
         padding-top: 330px;
+    }
+}
+
+@media (max-width: 360px) {
+
+    .contact-form__wrap {
+        padding-top: 40px;
     }
 }
 
@@ -809,11 +833,7 @@ input.is-error {
         max-width: 300px;
     }
 
-    .reservation__choice label {
-        margin-right: 0;
-    }
-
-    .contact-form__wrap {
-        padding-top: 70px;
+    .contact-form__thanks {
+        margin-top: 60px;
     }
 }
