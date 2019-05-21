@@ -259,6 +259,7 @@
 }
 
 .reservation-tariff__inner {
+    position: relative;
     padding: 16px;
     padding-bottom: 0;
     display: flex;
@@ -270,23 +271,39 @@
     background-position-y: 46px;
 }
 
-.reservation-tariff__item:nth-child(1) .reservation-tariff__inner {
-    background-position-y: 100px;
+/*.reservation-tariff__item:nth-child(1) .reservation-tariff__inner {*/
+/*    background-position-y: 100px;*/
+/*}*/
+
+/*.reservation-tariff__item:nth-child(2) .reservation-tariff__inner {*/
+/*    background-position-y: 38px;*/
+/*}*/
+
+/*.reservation-tariff__item:nth-child(3) .reservation-tariff__inner {*/
+/*    background-position-y: 95px;*/
+/*}*/
+.reservation-tariff__image {
+    position: absolute;
+    left: 0;
+    top: 75px;
+    height: 100%;
+    box-sizing: border-box;
+    max-height: 275px;
+
 }
 
-.reservation-tariff__item:nth-child(2) .reservation-tariff__inner {
-    background-position-y: 38px;
+.reservation-tariff__image img {
+    width: 100%;
+    height: 100%;
 }
 
-.reservation-tariff__item:nth-child(3) .reservation-tariff__inner {
-    background-position-y: 95px;
-}
 
 .reservation-tariff__title {
     font-family: "_kiddy", "Trebuchet MS", Arial, sans-serif;
     font-size: 24px;
     color: #2f6ebd;
     font-weight: bold;
+    line-height: 30px;
 }
 
 .reservation-tariff__text span {
@@ -311,11 +328,16 @@
     text-align: center;
     font-weight: bold;
     color: #e6142a;
+    margin-top: 5px;
+}
+
+.reservation-tariff__top {
+    min-height: 330px;
 }
 
 .reservation-tariff__desc {
     flex: 1 0 auto;
-    margin-top: 300px;
+    //margin-top: 300px;
 }
 
 .reservation-tariff__bottom {
@@ -778,8 +800,8 @@ input.is-error {
         justify-content: center;
     }
 
-    .reservation-tariff__inner {
-        background-image: none !important;
+    .reservation-tariff__image {
+        display: none;
     }
 
     .reservation-tariff__desc {

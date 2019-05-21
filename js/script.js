@@ -237,7 +237,11 @@ function renderTariffItem($name, $val, $key = 0) {
     var item = $("<div>").addClass(baseClass + "item");
 
     var inner = $("<div>").addClass(baseClass + "inner");
-    inner.css("background-image", "url(" + $val.image + ")");
+
+    var imageWrapper = $("<div>").addClass(baseClass + "image");
+    var image = $("<img>", {src: $val.image, alt: $val.name});
+    imageWrapper.append(image);
+    inner.append(imageWrapper);
 
     var top = $("<div>").addClass(baseClass + "top");
 
