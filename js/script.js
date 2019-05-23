@@ -1,7 +1,7 @@
-$(document).ready(function() {
-    $(".js-form-reservation").each(function() {
+$(document).ready(function () {
+    $(".js-form-reservation").each(function () {
         var form = $(this);
-        form.on("submit", function(o) {
+        form.on("submit", function (o) {
             o.preventDefault();
             o.stopPropagation();
 
@@ -11,7 +11,7 @@ $(document).ready(function() {
 
             $(form)
                 .serializeArray()
-                .forEach(function(item) {
+                .forEach(function (item) {
                     data[item.name] = item.value;
                 });
 
@@ -84,11 +84,10 @@ $(document).ready(function() {
                     dataType: "json",
                     data: data,
                     type: "post",
-                    success: function(data) {
+                    success: function (data) {
                         if (data.error) {
                             console.log(data.error);
-                        }
-                        else if (data.success) {
+                        } else if (data.success) {
                             console.log(data.success);
                         }
                     }
@@ -97,11 +96,11 @@ $(document).ready(function() {
                 // Модалка об успехе
                 // Переместить в success, после того, как будет путь для сохранения формы
                 $(".js-popup").fadeIn();
-                setTimeout(function() {
+                setTimeout(function () {
                     $(".js-popup").fadeOut();
                 }, 10000);
 
-                $(".js-popup-close").on("click", function() {
+                $(".js-popup-close").on("click", function () {
                     $(".js-popup").fadeOut();
                 });
                 // Модалка об успехе END
@@ -109,13 +108,26 @@ $(document).ready(function() {
         });
     });
 
-    $('.js-mask-phone').inputmask('+7 (999) 999-99-99', {
-        showMaskOnHover: false,
-        showMaskOnFocus: false,
+    $('.js-mask-phone').on('input change keyup', function () {
+        $(this).inputmask('+7 (999) 999-99-99', {
+            showMaskOnHover: false,
+            showMaskOnFocus: false,
+        });
+
+        if ($(this).val() === '') {
+            $(this).inputmask('remove');
+        }
     });
-    $('.js-mask-date').inputmask('99/99/9999', {
-        showMaskOnHover: false,
-        showMaskOnFocus: false,
+
+    $('.js-mask-date').on('input change keyup', function () {
+        $(this).inputmask('99/99/9999', {
+            showMaskOnHover: false,
+            showMaskOnFocus: false,
+        });
+
+        if ($(this).val() === '') {
+            $(this).inputmask('remove');
+        }
     });
 
     window.tariffSlickOptions = {
@@ -173,7 +185,7 @@ function renderSelect(selector, name, value) {
     var select = $("<select>");
     select.attr("name", name);
     if (value.length) {
-        value.forEach(function(item) {
+        value.forEach(function (item) {
             var option = $("<option>");
             option.attr("value", item.code);
             option.text(item.name);
@@ -188,7 +200,7 @@ function renderSelect(selector, name, value) {
 function renderTariff(parentSelector, selector, name, data) {
     var selectedOption = $(parentSelector + " select :selected");
     renderTariffList(selector, selectedOption, name, data);
-    $(parentSelector + " select").on("change", function() {
+    $(parentSelector + " select").on("change", function () {
         selectedOption = $(this).find(":selected");
         renderTariffList(selector, selectedOption, name, data);
     });
@@ -203,10 +215,10 @@ function renderTariffList(selector, selectedOption, name, data) {
 
     $(selector).html("");
     if (data.length) {
-        data.forEach(function($val) {
+        data.forEach(function ($val) {
             if ($val.code === selectedOption.val()) {
                 if ($val.tariffs.length) {
-                    $val.tariffs.forEach(function($tariff, $key) {
+                    $val.tariffs.forEach(function ($tariff, $key) {
                         $(selector).append(
                             renderTariffItem(name, $tariff, $key)
                         );
@@ -218,7 +230,7 @@ function renderTariffList(selector, selectedOption, name, data) {
 
     $(selector).slick(window.tariffSlickOptions);
 
-    $(window).on('resize orientationchange', function() {
+    $(window).on('resize orientationchange', function () {
         var responsive = window.tariffSlickOptions.responsive;
         if (responsive.length) {
             responsive.forEach(function (item) {
@@ -300,7 +312,7 @@ function renderZone(selector, name, data) {
     $(selector).html("");
 
     if (data.length) {
-        data.forEach(function($zone, $key) {
+        data.forEach(function ($zone, $key) {
             $(selector).append(renderZoneItem(name, $zone, $key));
         });
     }
@@ -318,14 +330,14 @@ function renderZoneItem($name, $val, $key = 0) {
     var slider = $("<div>").addClass(baseClass + "slider");
 
     if ($val.slider.length) {
-        $val.slider.forEach(function(path) {
+        $val.slider.forEach(function (path) {
             var slide = $("<a>").addClass(baseClass + "slider-item").attr({
                 'href': path,
                 'js-fancybox': '',
                 'data-fancybox': 'images-' + ($key + 1),
                 'data-type': 'image'
             });
-            slide.html($("<img>", { src: path, alt: "" }));
+            slide.html($("<img>", {src: path, alt: ""}));
             slider.append(slide);
         });
     }
