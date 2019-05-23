@@ -48,7 +48,7 @@ $(document).ready(function() {
                 }
             }
 
-            var tariffs = $(baseDataSector + "tariffs input");
+            var tariffs = $(baseDataSector + "tariffs input:checked");
             if (tariffs.length) {
                 if (tariffs.val() === "") {
                     alert("Укажите тариф!");
@@ -58,7 +58,7 @@ $(document).ready(function() {
                 }
             }
 
-            var zones = $(baseDataSector + "zones input");
+            var zones = $(baseDataSector + "zones input:checked");
             if (zones.length) {
                 if (zones.val() === "") {
                     alert("Укажите зону!");
