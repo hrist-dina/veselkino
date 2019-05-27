@@ -85,16 +85,11 @@ $(document).ready(function () {
                     data: data,
                     type: "post",
                     success: function (data) {
-                        checkZonesBooked();
-                        if (data == "1") {
-                            $(".js-popup").fadeIn();
-                            setTimeout(function() {
-                                $(".js-popup").fadeOut();
-                            }, 10000);
-
-                            $(".js-popup-close").on("click", function() {
-                                $(".js-popup").fadeOut();
-                            });
+                        if ($('[type = radio][name = zones]:first').length == 0) {
+                            showPopup("Свободных зон на это время нет. Выберите, пожалуйста, другое время или дату.", "Извините");
+                        } else if (data == "1") {
+                            checkZonesBooked();
+                            showPopup("Ваша заявка принята! С Вами свяжется наш менеджер для уточнения деталей.", "Спасибо!");
                         } else {
                             console.log("Не удалось отправить письмо")
                         }
@@ -424,6 +419,23 @@ function checkZonesBooked() {
                 var zoneInput = $('[value ="' + zone + '"]').siblings();
                 $(zoneInput).children(".button__content").html("Занято");
             });
+
+            $('[type = radio][name = zones]:first').prop( "checked", true);
         }
     });
+}
+
+function showPopup(text, h3) {
+    $(".popup-text").html(text);
+    $(".popup-text").siblings(".h3").html(h3)
+
+    $(".js-popup").fadeIn();
+    setTimeout(function() {
+        $(".js-popup").fadeOut();
+    }, 10000);
+
+    $(".js-popup-close").on("click", function() {
+        $(".js-popup").fadeOut();
+    });
+
 }
