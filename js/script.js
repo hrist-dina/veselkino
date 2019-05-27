@@ -90,6 +90,7 @@ $(document).ready(function () {
                         success: function (data) {
                             if (data == "1") {
                                 checkZonesBooked();
+                                clearField();
                                 showPopup("Ваша заявка принята! С Вами свяжется наш менеджер для уточнения деталей.", "Спасибо!");
                             } else {
                                 console.log("Не удалось отправить письмо")
@@ -439,4 +440,10 @@ function showPopup(text, h3) {
     $(".js-popup-close").on("click", function() {
         $(".js-popup").fadeOut();
     });
+}
+
+function clearField() {
+    $('[type = text]').val('');
+    $(".contact-form__label").removeClass("is-filled");
+    $('[type = email]').val('');
 }
