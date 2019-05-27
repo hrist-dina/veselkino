@@ -85,25 +85,21 @@ $(document).ready(function () {
                     data: data,
                     type: "post",
                     success: function (data) {
-                        if (data.error) {
-                            console.log(data.error);
-                        } else if (data.success) {
-                            console.log(data.success);
+                        checkZonesBooked();
+                        if (data == "1") {
+                            $(".js-popup").fadeIn();
+                            setTimeout(function() {
+                                $(".js-popup").fadeOut();
+                            }, 10000);
+
+                            $(".js-popup-close").on("click", function() {
+                                $(".js-popup").fadeOut();
+                            });
+                        } else {
+                            console.log("Не удалось отправить письмо")
                         }
                     }
                 });
-
-                // Модалка об успехе
-                // Переместить в success, после того, как будет путь для сохранения формы
-                $(".js-popup").fadeIn();
-                setTimeout(function () {
-                    $(".js-popup").fadeOut();
-                }, 10000);
-
-                $(".js-popup-close").on("click", function () {
-                    $(".js-popup").fadeOut();
-                });
-                // Модалка об успехе END
             }
         });
     });
@@ -316,6 +312,15 @@ function renderZone(selector, name, data) {
             $(selector).append(renderZoneItem(name, $zone, $key));
         });
     }
+
+    $(".js-render-time-select" + " select").on("change", function() {
+        checkZonesBooked();
+    });
+
+    $('[class = js-mask-date][name = date]').on("input", function() {
+        checkZonesBooked();
+    });
+
     return $(selector);
 }
 
@@ -392,4 +397,33 @@ function removeErrorValidation(element) {
     element.removeClass('is-error');
     element.parent().find('span').show();
     element.parent().find('.field-error').remove();
+}
+
+function checkZonesBooked() {
+    var baseDataSector = ".js-form-reservation-";
+
+    var time = $(baseDataSector + "time select");
+    var date = $(baseDataSector + "date input");
+
+    var zoneAttributes = {};
+    zoneAttributes["time"] = time.val();
+    zoneAttributes["date"] = date.val();
+
+    $.ajax({
+        url: "/bronirovanie/button.php",
+        dataType: "json",
+        data: zoneAttributes,
+        type: "post",
+        success: function(booked) {
+            $('[name="zones"]').attr("type", "radio");
+            var clearZone = $('[name="zones"]').siblings();
+            $(clearZone).children(".button__content").html("Выбрать");
+
+            booked.forEach(function(zone) {
+                $('[value ="' + zone + '"]').attr("type", "");
+                var zoneInput = $('[value ="' + zone + '"]').siblings();
+                $(zoneInput).children(".button__content").html("Занято");
+            });
+        }
+    });
 }
