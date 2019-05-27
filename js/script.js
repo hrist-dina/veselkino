@@ -79,22 +79,24 @@ $(document).ready(function () {
             console.log(data);
 
             if (!isError) {
-                $.ajax({
-                    url: form.attr("action"),
-                    dataType: "json",
-                    data: data,
-                    type: "post",
-                    success: function (data) {
-                        if ($('[type = radio][name = zones]:first').length == 0) {
-                            showPopup("Свободных зон на это время нет. Выберите, пожалуйста, другое время или дату.", "Извините");
-                        } else if (data == "1") {
-                            checkZonesBooked();
-                            showPopup("Ваша заявка принята! С Вами свяжется наш менеджер для уточнения деталей.", "Спасибо!");
-                        } else {
-                            console.log("Не удалось отправить письмо")
+                if ($('[type = radio][name = zones]:first').length == 0) {
+                    showPopup("Свободных зон на это время нет. Выберите, пожалуйста, другое время или дату.", "Извините");
+                } else {
+                    $.ajax({
+                        url: form.attr("data-url"),
+                        dataType: "json",
+                        data: data,
+                        type: "post",
+                        success: function (data) {
+                            if (data == "1") {
+                                checkZonesBooked();
+                                showPopup("Ваша заявка принята! С Вами свяжется наш менеджер для уточнения деталей.", "Спасибо!");
+                            } else {
+                                console.log("Не удалось отправить письмо")
+                            }
                         }
-                    }
-                });
+                    });
+                }
             }
         });
     });
@@ -437,5 +439,4 @@ function showPopup(text, h3) {
     $(".js-popup-close").on("click", function() {
         $(".js-popup").fadeOut();
     });
-
 }
