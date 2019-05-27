@@ -89,8 +89,8 @@ $(document).ready(function () {
                         type: "post",
                         success: function (data) {
                             if (data == "1") {
-                                checkZonesBooked();
                                 clearField();
+                                clearZone();
                                 showPopup("Ваша заявка принята! С Вами свяжется наш менеджер для уточнения деталей.", "Спасибо!");
                             } else {
                                 console.log("Не удалось отправить письмо")
@@ -413,9 +413,7 @@ function checkZonesBooked() {
         data: zoneAttributes,
         type: "post",
         success: function(booked) {
-            $('[name="zones"]').attr("type", "radio");
-            var clearZone = $('[name="zones"]').siblings();
-            $(clearZone).children(".button__content").html("Выбрать");
+            clearZone();
 
             booked.forEach(function(zone) {
                 $('[value ="' + zone + '"]').attr("type", "");
@@ -446,4 +444,12 @@ function clearField() {
     $('[type = text]').val('');
     $(".contact-form__label").removeClass("is-filled");
     $('[type = email]').val('');
+    $(".js-mask-phone").inputmask('remove');
+    $(".js-mask-date").inputmask('remove');
+}
+
+function clearZone() {
+    $('[name="zones"]').attr("type", "radio");
+    var clearZone = $('[name="zones"]').siblings();
+    $(clearZone).children(".button__content").html("Выбрать");
 }
