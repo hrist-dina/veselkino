@@ -627,6 +627,10 @@ input.is-error {
     border-radius: 10px;
 }
 
+.additional__title {
+    text-align: center;
+    color: #32bc4f;
+}
 
 .popup {
     display: none;
