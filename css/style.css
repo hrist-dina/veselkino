@@ -149,6 +149,18 @@
 .intro-reservation__desc-text p:last-child {
     margin-bottom: 0;
 }
+.intro-reservation__desc-text ul {
+    display: inline-table;
+}
+.intro-reservation__desc-text ul li {
+    display: block;
+    text-align: left;
+}
+
+.intro-reservation__desc-text ul li::before {
+    background-color: #fff;
+}
+
 
 .intro-reservation__desc-bold {
     margin-top: 30px;
