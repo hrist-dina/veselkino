@@ -340,7 +340,7 @@ function renderZoneItem($name, $val, $key = 0) {
                 'data-fancybox': 'images-' + ($key + 1),
                 'data-type': 'image'
             });
-            slide.html($("<img>", {src: path, alt: ""}));
+            slide.html($("<span>").css('background-image', 'url(' + path + ')'));
             slider.append(slide);
         });
     }
