@@ -420,9 +420,11 @@ function checkZonesBooked() {
             clearZone();
 
             booked.forEach(function(zone) {
-                $('[value ="' + zone + '"]').attr("type", "");
-                var zoneInput = $('[value ="' + zone + '"]').siblings();
+                var z = $('[value ="' + zone + '"]');
+                $(z).attr("type", "");
+                var zoneInput = $(z).siblings();
                 $(zoneInput).children(".button__content").html("Занято");
+                $(z).parent().siblings(".zones__slider").addClass("zones__inactive");
             });
 
             $('[type = radio][name = zones]:first').prop( "checked", true);
@@ -453,7 +455,9 @@ function clearField() {
 }
 
 function clearZone() {
-    $('[name="zones"]').attr("type", "radio");
-    var clearZone = $('[name="zones"]').siblings();
+    var z = $('[name="zones"]');
+    $(z).attr("type", "radio");
+    var clearZone = $(z).siblings();
     $(clearZone).children(".button__content").html("Выбрать");
+    $(z).parent().siblings(".zones__slider").removeClass("zones__inactive");
 }

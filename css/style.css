@@ -666,6 +666,10 @@ input.is-error {
     border-radius: 10px;
 }
 
+.zones__inactive {
+    opacity: .2;
+}
+
 .additional__title {
     text-align: center;
     color: #32bc4f;
