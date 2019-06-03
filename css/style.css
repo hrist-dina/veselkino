@@ -839,6 +839,11 @@ input.is-error {
     }
 }
 
+.body .nav__link-red {
+    color: #ff485a;
+    font-weight: bold;
+}
+
 @media (max-width: 425px) {
     .reservation-tariff__item {
         max-width: 330px;
