@@ -161,22 +161,24 @@ $(document).ready(function () {
         infinite: false
     };
 
-    renderSelect(".js-render-time-select", "time", window.dataTemplate.time);
+    if (window.dataTemplate) {
+        renderSelect(".js-render-time-select", "time", window.dataTemplate.time);
 
-    renderSelect(
-        ".js-render-count-select",
-        "countPeople",
-        window.dataTemplate.countPeople
-    );
+        renderSelect(
+            ".js-render-count-select",
+            "countPeople",
+            window.dataTemplate.countPeople
+        );
 
-    renderTariff(
-        ".js-render-count-select",
-        ".js-render-tariffs",
-        "tariffs",
-        window.dataTemplate.countPeople
-    );
+        renderTariff(
+            ".js-render-count-select",
+            ".js-render-tariffs",
+            "tariffs",
+            window.dataTemplate.countPeople
+        );
 
-    renderZone(".js-render-zones", "zones", window.dataTemplate.zones);
+        renderZone(".js-render-zones", "zones", window.dataTemplate.zones);
+    }
 });
 
 function renderSelect(selector, name, value) {
