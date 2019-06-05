@@ -1,7 +1,7 @@
-$(document).ready(function () {
-    $(".js-form-reservation").each(function () {
+$(document).ready(function() {
+    $(".js-form-reservation").each(function() {
         var form = $(this);
-        form.on("submit", function (o) {
+        form.on("submit", function(o) {
             o.preventDefault();
             o.stopPropagation();
 
@@ -11,14 +11,14 @@ $(document).ready(function () {
 
             $(form)
                 .serializeArray()
-                .forEach(function (item) {
+                .forEach(function(item) {
                     data[item.name] = item.value;
                 });
 
             var date = $(baseDataSector + "date input");
             if (date.length) {
                 if (date.val() === "") {
-                    setErrorValidationWithScroll(date, 'Укажите дату!');
+                    setErrorValidationWithScroll(date, "Укажите дату!");
                     isError = 1;
                 } else {
                     removeErrorValidation(date);
@@ -29,7 +29,7 @@ $(document).ready(function () {
             var time = $(baseDataSector + "time select");
             if (time.length) {
                 if (time.val() === "") {
-                    setErrorValidationWithScroll(time, 'Укажите время!');
+                    setErrorValidationWithScroll(time, "Укажите время!");
                     isError = 1;
                 } else {
                     removeErrorValidation(time);
@@ -40,7 +40,10 @@ $(document).ready(function () {
             var count = $(baseDataSector + "count select");
             if (count.length) {
                 if (count.val() === "") {
-                    setErrorValidationWithScroll(count, 'Укажите количество человек!');
+                    setErrorValidationWithScroll(
+                        count,
+                        "Укажите количество человек!"
+                    );
                     isError = 1;
                 } else {
                     removeErrorValidation(count);
@@ -68,8 +71,8 @@ $(document).ready(function () {
                 }
             }
 
-            form.find('.field input').each(function (key, item) {
-                if ($(item).val() === '') {
+            form.find(".field input").each(function(key, item) {
+                if ($(item).val() === "") {
                     setErrorValidation(item);
                     isError = 1;
                 } else {
@@ -79,25 +82,37 @@ $(document).ready(function () {
             console.log(data);
 
             if (!isError) {
-                if ($('[type = radio][name = zones]:first').length == 0) {
-                    showPopup("Свободных зон на это время нет. Выберите, пожалуйста, другое время или дату.", "Извините");
+                if ($("[type = radio][name = zones]:first").length == 0) {
+                    showPopup(
+                        "Свободных зон на это время нет. Выберите, пожалуйста, другое время или дату.",
+                        "Извините"
+                    );
                 } else {
                     $.ajax({
                         url: form.attr("data-url"),
                         dataType: "json",
                         data: data,
                         type: "post",
-                        success: function (data) {
+                        success: function(data) {
                             if (data == "1") {
                                 clearField();
                                 clearZone();
-                                showPopup("Ваша заявка принята! С Вами свяжется наш менеджер для уточнения деталей.", "Спасибо!");
+                                showPopup(
+                                    "Ваша заявка принята! С Вами свяжется наш менеджер для уточнения деталей.",
+                                    "Спасибо!"
+                                );
                             } else if (data == "2") {
-                                showPopup("Вы ввели некорректную дату рождения.", "Внимание");
+                                showPopup(
+                                    "Вы ввели некорректную дату рождения.",
+                                    "Внимание"
+                                );
                             } else if (data == "3") {
-                                showPopup("Вы ввели некорректную дату празднования.", "Внимание");
+                                showPopup(
+                                    "Вы ввели некорректную дату празднования.",
+                                    "Внимание"
+                                );
                             } else {
-                                console.log("Не удалось отправить письмо")
+                                console.log("Не удалось отправить письмо");
                             }
                         }
                     });
@@ -106,25 +121,35 @@ $(document).ready(function () {
         });
     });
 
-    $('.js-mask-phone').on('input change keyup', function () {
-        $(this).inputmask('+7 (999) 999-99-99', {
-            showMaskOnHover: false,
-            showMaskOnFocus: false,
-        });
-
-        if ($(this).val() === '') {
-            $(this).inputmask('remove');
+    var isInitPhoneMask = false;
+    $(".js-mask-phone").on("input change keyup", function() {
+        if ($(this).val() === "") {
+            $(this).inputmask("remove");
+            isInitPhoneMask = false;
+        } else {
+            if (!isInitPhoneMask) {
+                $(this).inputmask("+7 (999) 999-99-99", {
+                    showMaskOnHover: false,
+                    showMaskOnFocus: false
+                });
+                isInitPhoneMask = true;
+            }
         }
     });
 
-    $('.js-mask-date').on('input change keyup', function () {
-        $(this).inputmask('99/99/9999', {
-            showMaskOnHover: false,
-            showMaskOnFocus: false,
-        });
-
-        if ($(this).val() === '') {
-            $(this).inputmask('remove');
+    var isInitDateMask = false;
+    $(".js-mask-date").on("input change keyup", function() {
+        if ($(this).val() === "") {
+            $(this).inputmask("remove");
+            isInitDateMask = false;
+        } else {
+            if (!isInitDateMask) {
+                $(this).inputmask("99/99/9999", {
+                    showMaskOnHover: false,
+                    showMaskOnFocus: false
+                });
+                isInitDateMask = true;
+            }
         }
     });
 
@@ -162,7 +187,11 @@ $(document).ready(function () {
     };
 
     if (window.dataTemplate) {
-        renderSelect(".js-render-time-select", "time", window.dataTemplate.time);
+        renderSelect(
+            ".js-render-time-select",
+            "time",
+            window.dataTemplate.time
+        );
 
         renderSelect(
             ".js-render-count-select",
@@ -185,7 +214,7 @@ function renderSelect(selector, name, value) {
     var select = $("<select>");
     select.attr("name", name);
     if (value.length) {
-        value.forEach(function (item) {
+        value.forEach(function(item) {
             var option = $("<option>");
             option.attr("value", item.code);
             option.text(item.name);
@@ -200,7 +229,7 @@ function renderSelect(selector, name, value) {
 function renderTariff(parentSelector, selector, name, data) {
     var selectedOption = $(parentSelector + " select :selected");
     renderTariffList(selector, selectedOption, name, data);
-    $(parentSelector + " select").on("change", function () {
+    $(parentSelector + " select").on("change", function() {
         selectedOption = $(this).find(":selected");
         renderTariffList(selector, selectedOption, name, data);
     });
@@ -215,10 +244,10 @@ function renderTariffList(selector, selectedOption, name, data) {
 
     $(selector).html("");
     if (data.length) {
-        data.forEach(function ($val) {
+        data.forEach(function($val) {
             if ($val.code === selectedOption.val()) {
                 if ($val.tariffs.length) {
-                    $val.tariffs.forEach(function ($tariff, $key) {
+                    $val.tariffs.forEach(function($tariff, $key) {
                         $(selector).append(
                             renderTariffItem(name, $tariff, $key)
                         );
@@ -230,16 +259,15 @@ function renderTariffList(selector, selectedOption, name, data) {
 
     $(selector).slick(window.tariffSlickOptions);
 
-    $(window).on('resize orientationchange', function () {
+    $(window).on("resize orientationchange", function() {
         var responsive = window.tariffSlickOptions.responsive;
         if (responsive.length) {
-            responsive.forEach(function (item) {
+            responsive.forEach(function(item) {
                 if ($(window).width() <= item.breakpoint) {
-                    $(selector).slick('resize');
+                    $(selector).slick("resize");
                 }
-            })
+            });
         }
-
     });
     return $(selector);
 }
@@ -251,7 +279,7 @@ function renderTariffItem($name, $val, $key = 0) {
     var inner = $("<div>").addClass(baseClass + "inner");
 
     var imageWrapper = $("<div>").addClass(baseClass + "image");
-    var image = $("<img>", {src: $val.image, alt: $val.name});
+    var image = $("<img>", { src: $val.image, alt: $val.name });
     imageWrapper.append(image);
     inner.append(imageWrapper);
 
@@ -312,7 +340,7 @@ function renderZone(selector, name, data) {
     $(selector).html("");
 
     if (data.length) {
-        data.forEach(function ($zone, $key) {
+        data.forEach(function($zone, $key) {
             $(selector).append(renderZoneItem(name, $zone, $key));
         });
     }
@@ -321,7 +349,7 @@ function renderZone(selector, name, data) {
         checkZonesBooked();
     });
 
-    $('[class = js-mask-date][name = date]').on("input", function() {
+    $("[class = js-mask-date][name = date]").on("input", function() {
         checkZonesBooked();
     });
 
@@ -339,14 +367,18 @@ function renderZoneItem($name, $val, $key = 0) {
     var slider = $("<div>").addClass(baseClass + "slider");
 
     if ($val.slider.length) {
-        $val.slider.forEach(function (path) {
-            var slide = $("<a>").addClass(baseClass + "slider-item").attr({
-                'href': path,
-                'js-fancybox': '',
-                'data-fancybox': 'images-' + ($key + 1),
-                'data-type': 'image'
-            });
-            slide.html($("<span>").css('background-image', 'url(' + path + ')'));
+        $val.slider.forEach(function(path) {
+            var slide = $("<a>")
+                .addClass(baseClass + "slider-item")
+                .attr({
+                    href: path,
+                    "js-fancybox": "",
+                    "data-fancybox": "images-" + ($key + 1),
+                    "data-type": "image"
+                });
+            slide.html(
+                $("<span>").css("background-image", "url(" + path + ")")
+            );
             slider.append(slide);
         });
     }
@@ -385,22 +417,38 @@ function setErrorValidationWithScroll(element, message) {
         },
         1000
     );
-    element.addClass('is-error');
-    element.parent().find('span').hide();
-    element.parent().prepend($('<span>').addClass('field-error').text(message));
+    element.addClass("is-error");
+    element
+        .parent()
+        .find("span")
+        .hide();
+    element.parent().prepend(
+        $("<span>")
+            .addClass("field-error")
+            .text(message)
+    );
 }
 
 function setErrorValidation(element) {
     element = $(element);
-    element.addClass('is-error');
-    element.parent().find('.field__error').addClass('show');
+    element.addClass("is-error");
+    element
+        .parent()
+        .find(".field__error")
+        .addClass("show");
 }
 
 function removeErrorValidation(element) {
     element = $(element);
-    element.removeClass('is-error');
-    element.parent().find('span').show();
-    element.parent().find('.field-error').remove();
+    element.removeClass("is-error");
+    element
+        .parent()
+        .find("span")
+        .show();
+    element
+        .parent()
+        .find(".field-error")
+        .remove();
 }
 
 function checkZonesBooked() {
@@ -425,18 +473,25 @@ function checkZonesBooked() {
                 var z = $('[value ="' + zone + '"]');
                 $(z).attr("type", "");
                 var zoneInput = $(z).siblings();
-                $(zoneInput).children(".button__content").html("Занято");
-                $(z).parent().siblings(".zones__slider").addClass("zones__inactive");
+                $(zoneInput)
+                    .children(".button__content")
+                    .html("Занято");
+                $(z)
+                    .parent()
+                    .siblings(".zones__slider")
+                    .addClass("zones__inactive");
             });
 
-            $('[type = radio][name = zones]:first').prop( "checked", true);
+            $("[type = radio][name = zones]:first").prop("checked", true);
         }
     });
 }
 
 function showPopup(text, h3) {
     $(".popup-text").html(text);
-    $(".popup-text").siblings(".h3").html(h3)
+    $(".popup-text")
+        .siblings(".h3")
+        .html(h3);
 
     $(".js-popup").fadeIn();
     setTimeout(function() {
@@ -449,17 +504,22 @@ function showPopup(text, h3) {
 }
 
 function clearField() {
-    $('[type = text]').val('');
+    $("[type = text]").val("");
     $(".contact-form__label").removeClass("is-filled");
-    $('[type = email]').val('');
-    $(".js-mask-phone").inputmask('remove');
-    $(".js-mask-date").inputmask('remove');
+    $("[type = email]").val("");
+    $(".js-mask-phone").inputmask("remove");
+    $(".js-mask-date").inputmask("remove");
 }
 
 function clearZone() {
     var z = $('[name="zones"]');
     $(z).attr("type", "radio");
     var clearZone = $(z).siblings();
-    $(clearZone).children(".button__content").html("Выбрать");
-    $(z).parent().siblings(".zones__slider").removeClass("zones__inactive");
+    $(clearZone)
+        .children(".button__content")
+        .html("Выбрать");
+    $(z)
+        .parent()
+        .siblings(".zones__slider")
+        .removeClass("zones__inactive");
 }
