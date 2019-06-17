@@ -79,6 +79,16 @@ $(document).ready(function() {
                     removeErrorValidation(item);
                 }
             });
+
+            var services = "";
+            var servicesName = "";
+            $('input[type=checkbox]:checked').each(function (key, item) {
+                services += $(this).val() + " ";
+                servicesName += $(this).attr('name') + ";"
+            });
+            data['services'] = services;
+            data['servicesName'] = servicesName;
+
             console.log(data);
 
             if (!isError) {

@@ -844,6 +844,17 @@ input.is-error {
     font-weight: bold;
 }
 
+.check-service {
+    -webkit-appearance: checkbox;
+    -moz-appearance: checkbox;
+    width: 13px;
+    min-height: 10px;
+}
+
+.li-clear:before {
+    content: none;
+}
+
 @media (max-width: 425px) {
     .reservation-tariff__item {
         max-width: 330px;
