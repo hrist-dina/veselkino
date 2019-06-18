@@ -1,3 +1,7 @@
+var isInitDateMask = false;
+var isInitBirthdayMask = false;
+var isInitPhoneMask = false;
+
 $(document).ready(function() {
     $(".js-form-reservation").each(function() {
         var form = $(this);
@@ -107,6 +111,8 @@ $(document).ready(function() {
                             if (data == "1") {
                                 clearField();
                                 clearZone();
+                                changeTextButtons();
+                                clearSevices();
                                 showPopup(
                                     "Ваша заявка принята! С Вами свяжется наш менеджер для уточнения деталей.",
                                     "Спасибо!"
@@ -131,7 +137,6 @@ $(document).ready(function() {
         });
     });
 
-    var isInitPhoneMask = false;
     $(".js-mask-phone").on("input change keyup", function() {
         if ($(this).val() === "") {
             $(this).inputmask("remove");
@@ -147,8 +152,7 @@ $(document).ready(function() {
         }
     });
 
-    var isInitDateMask = false;
-    $(".js-mask-date").on("input change keyup", function() {
+    $(".js-mask-date[name=date]").on("input change keyup", function() {
         if ($(this).val() === "") {
             $(this).inputmask("remove");
             isInitDateMask = false;
@@ -159,6 +163,21 @@ $(document).ready(function() {
                     showMaskOnFocus: false
                 });
                 isInitDateMask = true;
+            }
+        }
+    });
+
+    $(".js-mask-date[name=birthday]").on("input change keyup", function() {
+        if ($(this).val() === "") {
+            $(this).inputmask("remove");
+            isInitBirthdayMask = false;
+        } else {
+            if (!isInitBirthdayMask) {
+                $(this).inputmask("99/99/9999", {
+                    showMaskOnHover: false,
+                    showMaskOnFocus: false
+                });
+                isInitBirthdayMask = true;
             }
         }
     });
@@ -218,6 +237,20 @@ $(document).ready(function() {
 
         renderZone(".js-render-zones", "zones", window.dataTemplate.zones);
     }
+
+    $('input[type=radio]').on('click', function () {
+        changeTextButtons();
+    });
+
+    $('select[name=countPeople]').on('click', function () {
+
+        $('input[type=radio]').on('click', function () {
+            changeTextButtons()
+        });
+        changeTextButtons();
+    });
+
+    $('input[type=radio]:checked').siblings().find(".button__content").html("Выбрано");
 });
 
 function renderSelect(selector, name, value) {
@@ -357,10 +390,12 @@ function renderZone(selector, name, data) {
 
     $(".js-render-time-select" + " select").on("change", function() {
         checkZonesBooked();
+        changeTextButtons
     });
 
     $("[class = js-mask-date][name = date]").on("input", function() {
         checkZonesBooked();
+        changeTextButtons
     });
 
     return $(selector);
@@ -493,6 +528,7 @@ function checkZonesBooked() {
             });
 
             $("[type = radio][name = zones]:first").prop("checked", true);
+            $('[type = radio][name = zones]:first').siblings().find(".button__content").html('Выбрано');
         }
     });
 }
@@ -514,11 +550,18 @@ function showPopup(text, h3) {
 }
 
 function clearField() {
-    $("[type = text]").val("");
+    $('[type = text]').val('');
     $(".contact-form__label").removeClass("is-filled");
-    $("[type = email]").val("");
-    $(".js-mask-phone").inputmask("remove");
-    $(".js-mask-date").inputmask("remove");
+    $('[type = email]').val('');
+
+    $(".js-mask-phone").inputmask('remove');
+    $(".js-mask-phone").val('');
+    isInitPhoneMask = false;
+
+    $(".js-mask-date").inputmask('remove');
+    $(".js-mask-date").val('');
+    isInitDateMask = false;
+    isInitBirthdayMask = false;
 }
 
 function clearZone() {
@@ -532,4 +575,14 @@ function clearZone() {
         .parent()
         .siblings(".zones__slider")
         .removeClass("zones__inactive");
+}
+
+function changeTextButtons() {
+    $('input[type=radio]').siblings().find(".button__content:contains('Выбрано')").html('Выбрать');
+    $('input[type=radio]:checked').siblings().find(".button__content").html('Выбрано');
+    $('[type = radio][name = zones][checked = true]').siblings().find(".button__content").html('Выбрано');
+}
+
+function clearSevices() {
+    $('input[type=checkbox][class=check-service]').prop("checked", false);
 }
